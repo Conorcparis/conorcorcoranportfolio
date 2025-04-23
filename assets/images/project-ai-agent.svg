@@ -1,0 +1,40 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="400" height="300" rx="20" fill="url(#backgroundGradient)" />
+  
+  <!-- Brain circuit pattern -->
+  <g fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2">
+    <path d="M100,100 C120,80 150,90 160,110 C180,140 200,130 220,150 C240,170 270,160 290,180" />
+    <path d="M120,200 C140,180 170,190 180,170 C200,140 220,150 240,130 C260,110 280,120 300,100" />
+    <circle cx="160" cy="110" r="4" fill="white" stroke="none" />
+    <circle cx="220" cy="150" r="4" fill="white" stroke="none" />
+    <circle cx="180" cy="170" r="4" fill="white" stroke="none" />
+    <circle cx="240" cy="130" r="4" fill="white" stroke="none" />
+  </g>
+  
+  <!-- Robot head icon -->
+  <g transform="translate(150, 90)">
+    <rect x="10" y="10" width="80" height="100" rx="10" fill="#ffffff" />
+    <rect x="25" y="30" width="20" height="10" rx="2" fill="#6BA959" />
+    <rect x="55" y="30" width="20" height="10" rx="2" fill="#6BA959" />
+    <rect x="35" y="70" width="30" height="5" rx="2" fill="#71C9EF" />
+    <rect x="25" y="80" width="50" height="5" rx="2" fill="#71C9EF" />
+    <circle cx="35" cy="35" r="5" fill="#71C9EF" />
+    <circle cx="65" cy="35" r="5" fill="#71C9EF" />
+    <path d="M20,0 L80,0 L90,10 L10,10 Z" fill="#ffffff" />
+    <rect x="0" y="10" width="10" height="90" fill="#ffffff" />
+    <rect x="90" y="10" width="10" height="90" fill="#ffffff" />
+    <path d="M10,100 L0,120 L100,120 L90,100 Z" fill="#ffffff" />
+  </g>
+  
+  <!-- Project title -->
+  <text x="200" y="230" font-family="Poppins, sans-serif" font-size="24" font-weight="600" text-anchor="middle" fill="white">AI Agent</text>
+  
+  <!-- Definitions for gradients and patterns -->
+  <defs>
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6BA959" />
+      <stop offset="100%" stop-color="#71C9EF" />
+    </linearGradient>
+  </defs>
+</svg>

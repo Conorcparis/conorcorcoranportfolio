@@ -1,0 +1,49 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="400" height="300" rx="20" fill="url(#ecomGradient)" />
+  
+  <!-- Network connection pattern -->
+  <g fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2">
+    <path d="M50,150 C90,100 150,200 200,130 C250,60 300,150 350,110" />
+    <path d="M50,180 C100,220 150,140 200,180 C250,220 300,160 350,200" />
+    <circle cx="50" cy="150" r="4" fill="white" stroke="none" />
+    <circle cx="200" cy="130" r="4" fill="white" stroke="none" />
+    <circle cx="350" cy="110" r="4" fill="white" stroke="none" />
+    <circle cx="50" cy="180" r="4" fill="white" stroke="none" />
+    <circle cx="200" cy="180" r="4" fill="white" stroke="none" />
+    <circle cx="350" cy="200" r="4" fill="white" stroke="none" />
+  </g>
+  
+  <!-- E-commerce graphic -->
+  <g transform="translate(130, 70)">
+    <!-- Shopping bag -->
+    <path d="M20,30 L20,110 L120,110 L120,30 Z" fill="#ffffff" />
+    <path d="M20,30 L20,45 L120,45 L120,30 Z" fill="#71C9EF" opacity="0.7" />
+    
+    <!-- Bag handles -->
+    <path d="M40,30 C40,10 55,10 55,30" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
+    <path d="M85,30 C85,10 100,10 100,30" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" />
+    
+    <!-- Display screen on bag -->
+    <rect x="35" y="60" width="70" height="40" rx="4" fill="#6BA959" opacity="0.8" />
+    
+    <!-- Cart icon -->
+    <g transform="translate(50, 70) scale(0.8)">
+      <circle cx="15" cy="45" r="6" fill="white" />
+      <circle cx="45" cy="45" r="6" fill="white" />
+      <path d="M0,5 L10,5 L15,30 L50,30 L55,10 L20,10" fill="none" stroke="white" stroke-width="3" />
+      <path d="M15,30 L15,45 M45,30 L45,45" fill="none" stroke="white" stroke-width="2" />
+    </g>
+  </g>
+  
+  <!-- Project title -->
+  <text x="200" y="230" font-family="Poppins, sans-serif" font-size="24" font-weight="600" text-anchor="middle" fill="white">E-Commerce</text>
+  
+  <!-- Definitions for gradients and patterns -->
+  <defs>
+    <linearGradient id="ecomGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6BA959" />
+      <stop offset="100%" stop-color="#71C9EF" />
+    </linearGradient>
+  </defs>
+</svg>
