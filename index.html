@@ -4,24 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Conor Corcoran – AI Strategy & Sales Leadership</title>
+  <!-- Use standard Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            'fade-in': 'fadeIn 1s ease-in-out',
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: 0 },
-              '100%': { opacity: 1 },
-            },
-          },
-        },
-      },
-    };
-  </script>
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
     rel="stylesheet"
@@ -109,7 +93,7 @@
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <div class="container mx-auto px-4 max-w-6xl">
+  <div id="top" class="container mx-auto px-4 max-w-6xl">
     <!-- Hero Section -->
     <header class="py-16 bg-gradient-to-r from-green-600/10 to-blue-500/10 rounded-lg mb-16">
       <div class="flex flex-col md:flex-row items-center md:space-x-12">
@@ -140,263 +124,254 @@
                 </svg>
                 <span class="text-xs">Paris, France</span>
               </div>
-              </div>
-            </div> class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+              
+              <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-            <div class="flex space-x-4 mt-4">.5a1 1 0 01.96.73l.54 2.016a1 1 0 01-.98 1.267h-1.5c-.133 0-.263.053-.359.149L1.5 8.5A1 1 0 001 9.5v2A1 1 0 001.5 12h14A1.5 1.5 0 0017 10.5v-6A1.5 1.5 0 0015.5 3H4a1 1 0 01-1-1z"/>
-              <a href="#" aria-label="Download CV" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition">5 0 01.5-.5h1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1zm3 0a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1zm3 0a.5.5 0 01.5-.5h1a.5.5 0 01.5.5v1a.5.5 0 01-.5.5h-1a.5.5 0 01-.5-.5v-1z"/>
-                Download CV
-              </a>pan class="text-xs">+33 6 62 04 85 09</span>
-              <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">
-                Contact Me
-              </a> class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-            </div>vg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-          </div>  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-        </div>    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-      </div>    </svg>
-    </header>   <span class="text-xs">conorc33@gmail.com</span>
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                <span class="text-xs">+33 6 62 04 85 09</span>
               </div>
+              
+              <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                <span class="text-xs">conorc33@gmail.com</span>
+              </div>
+            </div>
+            
+            <div class="flex space-x-4 mt-4">
+              <a href="#" aria-label="Download CV" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition">
+                Download CV
+              </a>
+              <a href="#contact" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">
+                Contact Me
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    
     <!-- Professional Journey -->
-<section class="mb-16 bg-white shadow-lg rounded-lg p-8">
-  <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Journey</h2>
-  <p class="text-lg mb-4">aria-label="Download CV" class="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition">
-    I’m a growth-focused leader who’s navigated the full spectrum of business—from Big Four consulting and banking to niche importers and direct-to-consumer ventures.
-  </p>        </a>
-  <p class="text-lg mb-4">class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">
-    After a year at PwC in Dublin as a junior consultant in their import-export practice, I dove into academics in 1996, earning a BSc in Management and a Diploma in Marketing from DIT. Beyond mastering core MBA modules—strategy, finance, operations, organizational behavior—I cut my teeth advising clients on mortgages and investment products during a six-month placement in financial services.
-  </p>        </a>
-  <p class="text-lg mb-4">
-    In 2000 I relocated to France to deepen my language skills, and by 2001 I was managing key accounts and trade-marketing programs for Brasseries Kronenbourg. A twelve-month stint in Australia followed, where I identified an opportunity to bring Anglo-Irish specialty beverages to the French market.
-  </p>  </div>
-  <p class="text-lg mb-4">
-    I then spent a year in business development for small wineries across the U.S. and Europe, and in 2006 launched my own direct-distribution network—growing it from a handful of SKUs to a €30M+ turnover over fifteen years.
-  </p>
-  <p class="text-lg mb-4">ney -->
-    When COVID-19 forced a rethink in 2020, I led a rapid pivot from B2B distribution to a consumer-facing e-commerce platform—complete with custom CRM, AI-driven forecasting agents, and dynamic marketing automation. Alongside that, I’ve upskilled in AI development, prompt engineering, and “vibe coding,” ensuring my next chapter blends deep industry know-how with cutting-edge technology.
-  </p>class="text-3xl font-bold mb-6 gradient-text">Professional Journey</h2>
-  <p class="text-lg mb-4">
-    Having built my career across consulting, banking, and large-scale FMCG—spanning wine, beer, cider, spirits, and snack foods—I’m now pivoting into the AI-powered SaaS sector. Throughout each phase, I’ve combined rigorous theory with hands-on execution, bringing strategic insight, operational grit, and technical fluency to every growth-oriented challenge.
-  </p>
-</section>="text-lg mb-4">
-    After a year at PwC in Dublin as a junior consultant in their import-export practice, I dove into academics in 1996, earning a BSc in Management and a Diploma in Marketing from DIT. Beyond mastering core MBA modules—strategy, finance, operations, organizational behavior—I cut my teeth advising clients on mortgages and investment products during a six-month placement in financial services.
-  </p>
+    <section id="journey" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Journey</h2>
+      <p class="text-lg mb-4">
+        I'm a growth-focused leader who's navigated the full spectrum of business—from Big Four consulting and banking to niche importers and direct-to-consumer ventures.
+      </p>
+      <p class="text-lg mb-4">
+        After a year at PwC in Dublin as a junior consultant in their import-export practice, I dove into academics in 1996, earning a BSc in Management and a Diploma in Marketing from DIT. Beyond mastering core MBA modules—strategy, finance, operations, organizational behavior—I cut my teeth advising clients on mortgages and investment products during a six-month placement in financial services.
+      </p>
+      <p class="text-lg mb-4">
+        In 2000 I relocated to France to deepen my language skills, and by 2001 I was managing key accounts and trade-marketing programs for Brasseries Kronenbourg. A twelve-month stint in Australia followed, where I identified an opportunity to bring Anglo-Irish specialty beverages to the French market.
+      </p>
+      <p class="text-lg mb-4">
+        I then spent a year in business development for small wineries across the U.S. and Europe, and in 2006 launched my own direct-distribution network—growing it from a handful of SKUs to a €30M+ turnover over fifteen years.
+      </p>
+      <p class="text-lg mb-4">
+        When COVID-19 forced a rethink in 2020, I led a rapid pivot from B2B distribution to a consumer-facing e-commerce platform—complete with custom CRM, AI-driven forecasting agents, and dynamic marketing automation. Alongside that, I've upskilled in AI development, prompt engineering, and "vibe coding," ensuring my next chapter blends deep industry know-how with cutting-edge technology.
+      </p>
+      <p class="text-lg mb-4">
+        Having built my career across consulting, banking, and large-scale FMCG—spanning wine, beer, cider, spirits, and snack foods—I'm now pivoting into the AI-powered SaaS sector. Throughout each phase, I've combined rigorous theory with hands-on execution, bringing strategic insight, operational grit, and technical fluency to every growth-oriented challenge.
+      </p>
+    </section>
+    
     <!-- Core Competencies -->
-    <div class="grid md:grid-cols-2 gap-8 mb-16">nguage skills, and by 2001 I was managing key accounts and trade-marketing programs for Brasseries Kronenbourg. A twelve-month stint in Australia followed, where I identified an opportunity to bring Anglo-Irish specialty beverages to the French market.
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
       <section class="bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h2>
-        <div class="space-y-4">ness development for small wineries across the U.S. and Europe, and in 2006 launched my own direct-distribution network—growing it from a handful of SKUs to a €30M+ turnover over fifteen years.
+        <div class="space-y-4">
           <div>
             <h3 class="font-semibold mb-2">Languages & Frameworks</h3>
-            <div class="flex flex-wrap gap-2">led a rapid pivot from B2B distribution to a consumer-facing e-commerce platform—complete with custom CRM, AI-driven forecasting agents, and dynamic marketing automation. Alongside that, I’ve upskilled in AI development, prompt engineering, and “vibe coding,” ensuring my next chapter blends deep industry know-how with cutting-edge technology.
+            <div class="flex flex-wrap gap-2">
               <span class="skill-tag">Python</span>
               <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">TypeScript</span>and large-scale FMCG—spanning wine, beer, cider, spirits, and snack foods—I’m now pivoting into the AI-powered SaaS sector. Throughout each phase, I’ve combined rigorous theory with hands-on execution, bringing strategic insight, operational grit, and technical fluency to every growth-oriented challenge.
+              <span class="skill-tag">TypeScript</span>
               <span class="skill-tag">HTML/CSS</span>
             </div>
           </div>
           <div>
             <h3 class="font-semibold mb-2">AI & Tools</h3>
-            <div class="flex flex-wrap gap-2">6">
-              <span class="skill-tag">OpenAI</span> p-6">
-              <span class="skill-tag">IBM Watson</span>t">Technical Skills</h2>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">OpenAI</span>
+              <span class="skill-tag">IBM Watson</span>
               <span class="skill-tag">CRM Systems</span>
               <span class="skill-tag">Mailchimp</span>
-            </div>ass="font-semibold mb-2">Languages & Frameworks</h3>
-          </div> class="flex flex-wrap gap-2">
-          <div>span class="skill-tag">Python</span>
-            <h3 class="font-semibold mb-2">DevOps</h3>>
-            <div class="flex flex-wrap gap-2">pt</span>
-              <span class="skill-tag">Docker</span>n>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">DevOps</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Docker</span>
               <span class="skill-tag">CI/CD</span>
               <span class="skill-tag">GitHub Actions</span>
             </div>
-          </div>class="font-semibold mb-2">AI & Tools</h3>
-        </div>iv class="flex flex-wrap gap-2">
-      </section>pan class="skill-tag">OpenAI</span>
+          </div>
+        </div>
+      </section>
+      
       <section class="bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl font-bold mb-6 gradient-text">Business Capabilities</h2>
-        <div class="space-y-4">l-tag">Mailchimp</span>
-          <div>iv>
+        <div class="space-y-4">
+          <div>
             <h3 class="font-semibold mb-2">Sales Strategy</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag">B2B Sales</span>
               <span class="skill-tag">Enterprise Sales</span>
               <span class="skill-tag">CRM Management</span>
-            </div>n class="skill-tag">CI/CD</span>
-          </div>pan class="skill-tag">GitHub Actions</span>
-          <div>iv>
+            </div>
+          </div>
+          <div>
             <h3 class="font-semibold mb-2">Leadership</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag">Team Development</span>
               <span class="skill-tag">Cross-Functional Management</span>
-              <span class="skill-tag">Strategic Planning</span>ess Capabilities</h2>
-            </div>="space-y-4">
+              <span class="skill-tag">Strategic Planning</span>
+            </div>
           </div>
-          <div> class="font-semibold mb-2">Sales Strategy</h3>
+          <div>
             <h3 class="font-semibold mb-2">Go-To-Market</h3>
-            <div class="flex flex-wrap gap-2">s</span>
+            <div class="flex flex-wrap gap-2">
               <span class="skill-tag">Digital Campaigns</span>
               <span class="skill-tag">Brand Launches</span>
               <span class="skill-tag">Market Research</span>
             </div>
           </div>
-        </div>3 class="font-semibold mb-2">Leadership</h3>
-      </section> class="flex flex-wrap gap-2">
-    </div>    <span class="skill-tag">Team Development</span>
-              <span class="skill-tag">Cross-Functional Management</span>
-    <!-- Certifications -->skill-tag">Strategic Planning</span>
+        </div>
+      </section>
+    </div>
+    
+    <!-- Certifications -->
     <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Certifications</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="certification-item">2">Go-To-Market</h3>
+        <div class="certification-item">
           <h3 class="text-xl font-semibold">IBM AI Developer Professional Certificate</h3>
-          <p class="text-gray-600">IBM, 2024–2025</p>ns</span>
+          <p class="text-gray-600">IBM, 2024–2025</p>
           <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-            <li>AI application development</li>search</span>
+            <li>AI application development</li>
             <li>Generative AI integration</li>
             <li>Python, JavaScript, HTML/CSS</li>
             <li>Sales reporting AI agent</li>
-          </ul>>
+          </ul>
         </div>
         <div class="certification-item">
           <h3 class="text-xl font-semibold">Generative AI Leadership & Strategy Specialization</h3>
           <p class="text-gray-600">Vanderbilt University, 2024</p>
-          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">fications</h2>
-            <li>AI strategy</li>-1 md:grid-cols-2 gap-8">
+          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+            <li>AI strategy</li>
             <li>Business transformation</li>
-            <li>Productivity acceleration</li>M AI Developer Professional Certificate</h3>
-            <li>Executive AI integration</li>2025</p>
-          </ul>lass="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-        </div>i>AI application development</li>
-        <div class="certification-item">n</li>
+            <li>Productivity acceleration</li>
+            <li>Executive AI integration</li>
+          </ul>
+        </div>
+        <div class="certification-item">
           <h3 class="text-xl font-semibold">Data Analytics in AI</h3>
           <p class="text-gray-600">Jedha Bootcamp, Paris, 2024</p>
           <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
             <li>Data processing</li>
-            <li>Visualization</li>item">
-            <li>AI-powered decision making</li>erative AI Leadership & Strategy Specialization</h3>
-          </ul>ass="text-gray-600">Vanderbilt University, 2024</p>
-        </div>class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+            <li>Visualization</li>
+            <li>AI-powered decision making</li>
+          </ul>
+        </div>
         <!-- add more certifications here if needed -->
-      </div><li>Business transformation</li>
-    </section>i>Productivity acceleration</li>
-            <li>Executive AI integration</li>
+      </div>
+    </section>
+    
     <!-- Portfolio -->
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
+    <section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Portfolio</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
           <img src="assets/images/project1.jpg" alt="Project 1" class="w-full h-48 object-cover">
-          <div class="p-4">sing</li>
+          <div class="p-4">
             <h3 class="text-xl font-semibold">Project Title</h3>
             <p class="text-gray-600">Brief description of the project.</p>
           </div>
         </div>
-        <!-- Add more project cards -->re if needed -->
+        <!-- Add more project cards as needed -->
       </div>
     </section>
 
     <!-- Professional Experience -->
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8 fade-in-up">
+    <section id="experience" class="mb-16 bg-white shadow-lg rounded-lg p-8 fade-in-up">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Experience</h2>
-      <!-- Content -->class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    </section>
-
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Experience</h2>
-      <div>
+      <div class="mb-8">
         <h3 class="text-2xl font-semibold">Sales & Marketing Director | AI & Digital Strategy</h3>
         <p class="text-lg text-gray-600">Direct Distribution, Paris, France (Oct 2006 – May 2024)</p>
         <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
           <li>Delivered 15%+ YoY growth; built pipeline with 800+ clients across 12 regions</li>
-          <li>Designed & implemented 5 CRM systems with integrated forecasting tools</li>n>
+          <li>Designed & implemented 5 CRM systems with integrated forecasting tools</li>
           <li>Launched 60+ products via full Go-To-Market strategies</li>
-          <li>Managed €2.2M+ annual targets; created playbooks & performance dashboards</li>    <!-- Professional Experience -->
+          <li>Managed €2.2M+ annual targets; created playbooks & performance dashboards</li>
           <li>Built & led 30+ team members with 90%+ retention rate</li>
         </ul>
       </div>
-    </section> & Marketing Director | AI & Digital Strategy</h3>
-
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">lass="list-disc pl-5 mt-4 space-y-2 text-gray-700">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Experience</h2>i>
-      <div class="mb-8">g tools</li>
-        <h3 class="text-2xl font-semibold mb-1">rategies</li>
-          Sales and Key Accounts Manager <span class="font-normal">| Brand Expansion | National Sales</span>
-        </h3>
-        <p class="text-md italic text-gray-700 mb-1">Brasseries Kronenbourg, Paris, France</p>
-        <p class="text-sm text-gray-500 mb-4">September 2001 – March 2004</p>
-    </section>ass="list-disc list-inside space-y-2 text-lg">n>
-          <li>Spearheaded the national rollout of Foster’s and Carlsberg across 1,000+ on-trade outlets</li>
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">res, and promotional campaigns</li>    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Experience</h2>strategy</li>bold mb-6 gradient-text">Professional Experience</h2>
+      
       <div class="mb-8">
         <h3 class="text-2xl font-semibold mb-1">
           Sales and Key Accounts Manager <span class="font-normal">| Brand Expansion | National Sales</span>
         </h3>
         <p class="text-md italic text-gray-700 mb-1">Brasseries Kronenbourg, Paris, France</p>
-        <p class="text-sm text-gray-500 mb-4">September 2001 – March 2004</p>– March 2004</p>
-        <ul class="list-disc list-inside space-y-2 text-lg">onal Interests</h2>-y-2 text-lg">
-          <li>Spearheaded the national rollout of Foster’s and Carlsberg across 1,000+ on-trade outlets</li>
+        <p class="text-sm text-gray-500 mb-4">September 2001 – March 2004</p>
+        <ul class="list-disc list-inside space-y-2 text-lg">
+          <li>Spearheaded the national rollout of Foster's and Carlsberg across 1,000+ on-trade outlets</li>
           <li>Managed regional account teams, pricing structures, and promotional campaigns</li>
-          <li>Increased brand visibility through events, training programs, and POS strategy</li>>
-        </ul> class="skill-tag">Boxing</span>
-      </div>n class="skill-tag">Cycling</span>
-    </section>class="skill-tag">AI Innovation</span>
-        <span class="skill-tag">Hiking</span>
-    <!-- Personal Interests -->>Cooking</span>ersonal Interests -->
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Personal Interests</h2>terests</h2>
-      <div class="flex flex-wrap gap-4">-wrap gap-4">
-        <span class="skill-tag">Sports</span>th a passion for sports. Despite being a "very bad golfer," I enjoy the walk. From my first pair of adidas ROM at age 11, sports have been a lifelong passion.
+          <li>Increased brand visibility through events, training programs, and POS strategy</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Personal Interests -->
+    <section id="interests" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Personal Interests</h2>
+      <div class="flex flex-wrap gap-4">
+        <span class="skill-tag">Sports</span>
         <span class="skill-tag">Swimming</span>
         <span class="skill-tag">Boxing</span>
         <span class="skill-tag">Cycling</span>
         <span class="skill-tag">AI Innovation</span>
-        <span class="skill-tag">Hiking</span>rounded-lg p-8">
-        <span class="skill-tag">Cooking</span>ent-text">Contact Me</h2>
-        <span class="skill-tag">Reading</span>r-form-id" method="POST" class="space-y-4">kill-tag">Reading</span>
-      </div>ut type="text" name="name" placeholder="Your Name" class="w-full p-3 border rounded-lg" required />
-      <p class="mt-4 text-gray-700">ail" placeholder="Your Email" class="w-full p-3 border rounded-lg" required />s="mt-4 text-gray-700">
-        An avid rugby and soccer supporter with a passion for sports. Despite being a "very bad golfer," I enjoy the walk. From my first pair of adidas ROM at age 11, sports have been a lifelong passion. bad golfer," I enjoy the walk. From my first pair of adidas ROM at age 11, sports have been a lifelong passion.
-      </p>utton type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">      </p>
-    </section> Message
-        </button>
+        <span class="skill-tag">Hiking</span>
+        <span class="skill-tag">Cooking</span>
+        <span class="skill-tag">Reading</span>
+      </div>
+      <p class="mt-4 text-gray-700">
+        An avid rugby and soccer supporter with a passion for sports. Despite being a "very bad golfer," I enjoy the walk. From my first pair of adidas ROM at age 11, sports have been a lifelong passion.
+      </p>
+    </section>
+    
     <!-- Contact Me -->
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
+    <section id="contact" class="mb-16 bg-white shadow-lg rounded-lg p-8">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Me</h2>
-      <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">e-y-4">
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
         <input type="text" name="name" placeholder="Your Name" class="w-full p-3 border rounded-lg" required />
         <input type="email" name="email" placeholder="Your Email" class="w-full p-3 border rounded-lg" required />
-        <textarea name="message" placeholder="Your Message" class="w-full p-3 border rounded-lg" rows="5" required></textarea>name="message" placeholder="Your Message" class="w-full p-3 border rounded-lg" rows="5" required></textarea>
-        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">><button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">
-          Send Messagessage
-        </button>ext-gray-600">&copy; 2025 Conor Corcoran. All rights reserved.</p> </button>
+        <textarea name="message" placeholder="Your Message" class="w-full p-3 border rounded-lg" rows="5" required></textarea>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition">
+          Send Message
+        </button>
       </form>
     </section>
 
     <!-- Footer -->
     <footer class="text-center py-8 border-t">
-      <div class="flex justify-center space-x-4 mb-4">" class="text-blue-500 hover:underline">Back to Top</a>      </form>
+      <div class="flex justify-center space-x-4 mb-4">
         <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:underline flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.028-3.152-1.922-3.152-1.922 0-2.218 1.502-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.379-1.559 2.841-1.559 3.037 0 3.6 2.001 3.6 4.601v5.591z"/>ter -->
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.028-3.152-1.922-3.152-1.922 0-2.218 1.502-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.379-1.559 2.841-1.559 3.037 0 3.6 2.001 3.6 4.601v5.591z"/>
           </svg>
           LinkedIn
-        </a>ef="https://linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a>
-        <a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline flex items-center gap-2"><a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline">GitHub</a>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">/div>
-            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.305-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.649.24 2.871.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.102.81 2.22v3.293c0 .315.21.69.825.573 4.765-1.587 8.205-6.084 8.205-11.387 0-6.627-5.373-12-12-12z"/>p class="text-gray-600">&copy; 2025 Conor Corcoran. All rights reserved.</p>
-
-
-
-
-
-
-
-
-
-
-</html></body>  </div>    </footer>      <a href="#top" class="text-blue-500 hover:underline">Back to Top</a>      <p class="text-gray-600">&copy; 2025 Conor Corcoran. All rights reserved.</p>      </div>        </a>          GitHub          </svg>      <a href="#top" class="text-blue-500 hover:underline">Back to Top</a>
+        </a>
+        <a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.305-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.649.24 2.871.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.102.81 2.22v3.293c0 .315.21.69.825.573 4.765-1.587 8.205-6.084 8.205-11.387 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <a href="#top" class="text-blue-500 hover:underline">Back to Top</a>
+      <p class="text-gray-600">&copy; 2025 Conor Corcoran. All rights reserved.</p>
     </footer>
   </div>
 </body>

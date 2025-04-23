@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom overrides below */
+:root {
+  --primary-green: #6BA959;
+  --primary-blue: #71C9EF;
+  --dark-text: #1E293B;
+  --light-text: #64748B;
+}
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* etc… */

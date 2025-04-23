@@ -1,17 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ——— Your custom overrides ——— */
 :root {
   --primary-green: #6BA959;
   --primary-blue: #71C9EF;
   --dark-text: #1E293B;
   --light-text: #64748B;
 }
+
 body {
   font-family: 'Inter', sans-serif;
 }
+
 .gradient-text {
   background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
 .skill-tag {
   background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
   color: white;
@@ -20,6 +28,7 @@ body {
   font-size: 0.9rem;
   font-weight: 500;
 }
+
 .certification-item {
   border-left: 4px solid var(--primary-green);
   padding-left: 1rem;
