@@ -1,1029 +1,449 @@
-<!-- Remove the old CV agent toggle and add JavaScript for the new in-header agent -->
-<script>
-  // CV Agent Functionality
-  document.addEventListener('DOMContentLoaded', function() {
-    const input = document.getElementById('cv-agent-input');
-    const sendBtn = document.getElementById('cv-agent-send');
-    const messagesDiv = document.getElementById('cv-agent-messages');
-    
-    // Sample responses based on keywords
-    const responses = {
-      "experience": "Conor has over 20 years of experience in sales and business development, including 18 years at Direct Distribution where he scaled the business to €30M+ turnover. He also worked at Brasseries Kronenbourg as a Key Accounts Manager and started his career at PwC as a junior consultant.",
-      "skills": "Conor's technical skills include Python, JavaScript, TypeScript, and HTML/CSS. His AI expertise covers OpenAI and IBM Watson platforms. His business capabilities span B2B Sales, Enterprise Sales, CRM Management, Team Development, and Strategic Planning.",
-      "education": "Conor earned a BSc in Management from Trinity College Dublin and a Diploma in Marketing from Technological University Dublin between 1996-2000.",
-      "certifications": "Conor holds an IBM AI Developer Professional Certificate, a Generative AI Leadership & Strategy Specialization from Vanderbilt University, and completed Data Analytics in AI training at Jedha Bootcamp, Paris.",
-      "ai": "Conor has significant AI experience, having implemented AI-driven forecasting tools and marketing automation systems. He's certified in AI development through IBM and completed specialized training in Generative AI Leadership at Vanderbilt University.",
-      "languages": "Conor speaks English (native) and French (bilingual). He relocated to France in 2000 to deepen his language skills.",
-      "contact": "You can reach Conor via email at conorc33@gmail.com or by phone at +33 6 62 04 85 09. He's currently based in Paris, France."
-    };
-    
-    // Default responses for when no keywords match
-    const defaultResponse = "I'd be happy to tell you about Conor's professional background. He has over 20 years of experience across consulting, banking, and FMCG industries, with expertise in sales leadership, team development, and recently AI strategy. What specific aspect would you like to know more about?";
-    
-    // Send a message
-    function sendMessage() {
-      const userQuery = input.value.trim();
-      if (userQuery === '') return;
-      
-      // Add user message
-      addMessage(userQuery, 'user');
-      
-      // Process the query and respond
-      setTimeout(() => {
-        const response = getResponse(userQuery);
-        addMessage(response, 'agent');
-      }, 500);
-      
-      // Clear input
-      input.value = '';
-    }
-    
-    // Get a response based on the user's query
-    function getResponse(query) {
-      query = query.toLowerCase();
-      
-      // Check for keyword matches
-      for (const [keyword, response] of Object.entries(responses)) {
-        if (query.includes(keyword)) {
-          return response;
-        }
-      }
-      
-      // Check for specific questions
-      if (query.includes('who') && query.includes('you')) {
-        return "I'm an AI assistant specifically trained to answer questions about Conor Corcoran's professional background, skills, and experience. Feel free to ask me anything about his career!";
-      }
-      
-      if (query.includes('looking') && query.includes('for') || query.includes('hiring') || query.includes('recruit')) {
-        return "Great! Conor is currently open to new opportunities. You can reach him directly at conorc33@gmail.com or +33 6 62 04 85 09. Would you like specific information about his experience in a particular area?";
-      }
-      
-      // Return default response if no matches
-      return defaultResponse;
-    }
-    
-    // Add a message to the chat
-    function addMessage(content, sender) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('message');
-      messageDiv.classList.add(sender === 'user' ? 'user-message' : 'agent-message');
-      messageDiv.textContent = content;
-      
-      messagesDiv.appendChild(messageDiv);
-      
-      // Scroll to bottom
-      messagesDiv.scrollTop = messagesDiv.scrollHeight;
-    }
-    
-    // Event listeners
-    sendBtn.addEventListener('click', sendMessage);
-    
-    input.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        sendMessage();
-      }
-    });
-  });
-</script><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Conor Corcoran – AI Strategy & Sales Leadership</title>
-<!-- Use standard Tailwind CSS CDN -->
-<script src="https://cdn.tailwindcss.com"></script>
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-  rel="stylesheet"
-/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --primary-green: #6BA959;
-    --primary-blue: #71C9EF;
-    --dark-text: #1E293B;
-    --light-text: #64748B;
-  }
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f9fafb;
-  }
-  h1, h2, h3 {
-    font-family: 'Poppins', sans-serif;
-  }
-  .gradient-text {
-    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  .skill-tag {
-    background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  .certification-item {
-    border-left: 4px solid var(--primary-green);
-    padding-left: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-  header {
-    background: linear-gradient(to right, rgba(107, 169, 89, 0.1), rgba(113, 201, 239, 0.1)), url('assets/images/background.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #1E293B;
-  }
-  header h1 {
-    font-size: 3.5rem;
-    line-height: 1.2;
-  }
-  header a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-  img:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-  }
-  .skill-tag:hover {
-    background: var(--primary-blue);
-    color: white;
-    transition: background 0.3s ease-in-out;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conor Corcoran – AI Strategy & Sales Leadership</title>
+  <!-- Use standard Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-green: #6BA959;
+      --primary-blue: #71C9EF;
+      --dark-text: #1E293B;
+      --light-text: #64748B;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
     }
-  }
+    h1, h2, h3 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .skill-tag {
+      background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .certification-item {
+      border-left: 4px solid var(--primary-green);
+      padding-left: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    header {
+      background: linear-gradient(to right, rgba(107, 169, 89, 0.1), rgba(113, 201, 239, 0.1)), url('assets/images/background.jpg');
+      background-size: cover;
+      background-position: center;
+      color: #1E293B;
+    }
+    header h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+    }
+    header a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease-in-out;
+    }
+    .skill-tag:hover {
+      background: var(--primary-blue);
+      color: white;
+      transition: background 0.3s ease-in-out;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
 
-  .fade-in-up {
-    animation: fadeInUp 1s ease-in-out;
-  }
-  
-  /* CV Search Agent Styles - Header Position */
-  .cv-agent-container {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    overflow: hidden;
-    width: 100%;
-    max-width: 400px;
-    border: 1px solid #f0f0f0;
-  }
-  
-  .cv-agent-header {
-    padding: 15px;
-    text-align: center;
-    border-bottom: 1px solid #f0f0f0;
-    background: linear-gradient(to right, rgba(107, 169, 89, 0.1), rgba(113, 201, 239, 0.1));
-  }
-  
-  .cv-agent-body {
-    padding: 15px;
-    height: 250px;
-    overflow-y: auto;
-    background-color: #fafafa;
-  }
-  
-  .cv-agent-footer {
-    padding: 15px;
-    border-top: 1px solid #f0f0f0;
-    background-color: white;
-  }
-  
-  .message {
-    margin-bottom: 10px;
-    max-width: 80%;
-    word-break: break-word;
-  }
-  
-  .user-message {
-    margin-left: auto;
-    background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
-    color: white;
-    border-radius: 10px 10px 0 10px;
-    padding: 8px 12px;
-  }
-  
-  .agent-message {
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 10px 10px 10px 0;
-    padding: 8px 12px;
-  }
-</style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 1s ease-in-out;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 6px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--primary-green), var(--primary-blue));
+      border-radius: 3px;
+    }
+    
+    .timeline-item::after {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
+    }
+  </style>
 </head>
 <body class="bg-gray-50">
-<div id="top" class="container mx-auto px-4 max-w-6xl">
-  <header class="py-16 bg-gradient-to-r from-green-600/10 to-blue-500/10 rounded-lg mb-16">
-    <div class="flex flex-col lg:flex-row items-start lg:items-center gap-8">
-      <div class="w-full lg:w-1/3">
-        <div class="relative">
-          <img
-            src="assets/images/conor c pic.png"
-            alt="Conor Corcoran"
-            loading="lazy"
-            class="rounded-2xl shadow-2xl border-4 border-white transform transition-all hover:scale-105"
-          />
-          <div class="absolute bottom-0 right-0 bg-green-500 text-white px-3 py-1 rounded-tl-lg text-sm">
-            Open to Work
+  <div id="top" class="container mx-auto px-4 max-w-6xl">
+    <div class="flex justify-end py-4">
+      <a href="index-fr.html" class="bg-white rounded-full px-4 py-2 shadow flex items-center gap-2 text-sm hover:shadow-md transition-all">
+        <span class="text-gray-700">Switch to French</span>
+        <span class="w-6 h-4 rounded-sm overflow-hidden shadow-sm">
+          <img src="https://flagcdn.com/w40/fr.png" alt="French Flag" class="w-full h-full object-cover" />
+        </span>
+      </a>
+    </div>
+    
+    <header class="py-16 bg-gradient-to-r from-green-600/10 to-blue-500/10 rounded-lg mb-16">
+      <div class="flex flex-col md:flex-row items-center md:space-x-12">
+        <div class="w-full md:w-1/3 mb-8 md:mb-0">
+          <div class="relative">
+            <img
+              src="assets/images/conor c pic.png"
+              alt="Conor Corcoran"
+              loading="lazy"
+              class="rounded-2xl shadow-2xl border-4 border-white transform transition-all hover:scale-105"
+            />
+            <div class="absolute bottom-0 right-0 bg-green-500 text-white px-3 py-1 rounded-tl-lg text-sm">
+              Open to Work
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="w-full lg:w-1/3 space-y-4">
-        <div>
-          <h1 class="text-5xl font-bold mb-2 gradient-text">Conor Corcoran</h1>
-          <p class="text-2xl text-gray-600">Senior Sales & AI Strategy Leader</p>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-4">
-          <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-            </svg>
-            <span class="text-xs">Paris, France</span>
+        <div class="w-full md:w-2/3 space-y-4">
+          <div>
+            <h1 class="text-5xl font-bold mb-2 gradient-text">Conor Corcoran</h1>
+            <p class="text-2xl text-gray-600">Senior Sales & AI Strategy Leader</p>
           </div>
 
-          <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-            </svg>
-            <span class="text-xs">+33 6 62 04 85 09</span>
-          </div>
-
-          <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-            </svg>
-            <span class="text-xs">conorc33@gmail.com</span>
-          </div>
-        </div>
-
-        <div class="space-y-1">
-          <h3 class="text-lg font-semibold text-gray-700">Education</h3>
-          <p class="text-sm text-gray-600">BSc Management – Trinity College Dublin (1996 – 2000)</p>
-          <p class="text-sm text-gray-600">Diploma in Marketing – Technological University Dublin (1996 – 2000)</p>
-        </div>
-
-        <div class="space-y-1">
-          <h3 class="text-lg font-semibold text-gray-700">Languages</h3>
-          <p class="text-sm text-gray-600">English – Native</p>
-          <p class="text-sm text-gray-600">French – Bilingual</p>
-        </div>
-      </div>
-      
-      <!-- CV Agent placed directly in the header section -->
-      <div class="w-full lg:w-1/3">
-        <div class="cv-agent-container">
-          <div class="cv-agent-header">
-            <div class="flex items-center justify-center mb-2">
-              <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="w-12 h-12">
-                <!-- Background with gradient -->
-                <rect width="400" height="300" rx="20" fill="url(#agentGradient)" />
-                
-                <!-- Brain circuit pattern -->
-                <g fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="2">
-                  <path d="M100,100 C120,80 150,90 160,110 C180,140 200,130 220,150 C240,170 270,160 290,180" />
-                  <path d="M120,200 C140,180 170,190 180,170 C200,140 220,150 240,130 C260,110 280,120 300,100" />
-                  <circle cx="160" cy="110" r="4" fill="white" stroke="none" />
-                  <circle cx="220" cy="150" r="4" fill="white" stroke="none" />
-                  <circle cx="180" cy="170" r="4" fill="white" stroke="none" />
-                  <circle cx="240" cy="130" r="4" fill="white" stroke="none" />
-                </g>
-                
-                <!-- Robot head icon -->
-                <g transform="translate(150, 90)">
-                  <rect x="10" y="10" width="80" height="100" rx="10" fill="#ffffff" />
-                  <rect x="25" y="30" width="20" height="10" rx="2" fill="#6BA959" />
-                  <rect x="55" y="30" width="20" height="10" rx="2" fill="#6BA959" />
-                  <rect x="35" y="70" width="30" height="5" rx="2" fill="#71C9EF" />
-                  <rect x="25" y="80" width="50" height="5" rx="2" fill="#71C9EF" />
-                  <circle cx="35" cy="35" r="5" fill="#71C9EF" />
-                  <circle cx="65" cy="35" r="5" fill="#71C9EF" />
-                  <path d="M20,0 L80,0 L90,10 L10,10 Z" fill="#ffffff" />
-                  <rect x="0" y="10" width="10" height="90" fill="#ffffff" />
-                  <rect x="90" y="10" width="10" height="90" fill="#ffffff" />
-                  <path d="M10,100 L0,120 L100,120 L90,100 Z" fill="#ffffff" />
-                </g>
-                
-                <!-- Definitions for gradients and patterns -->
-                <defs>
-                  <linearGradient id="agentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#6BA959" />
-                    <stop offset="100%" stop-color="#71C9EF" />
-                  </linearGradient>
-                </defs>
+          <div class="flex flex-wrap items-center gap-4">
+            <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
               </svg>
+              <span class="text-xs">Paris, France</span>
             </div>
-            <h3 class="text-lg font-bold gradient-text">Ask me about Conor</h3>
-            <p class="text-xs text-gray-600">I can answer questions about Conor's experience & skills</p>
+
+            <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
+              <span class="text-xs">+33 6 62 04 85 09</span>
+            </div>
+
+            <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+              <span class="text-xs">conorc33@gmail.com</span>
+            </div>
           </div>
-          
-          <div class="cv-agent-body" id="cv-agent-messages">
-            <div class="message agent-message">
-              Hello! I'm Conor's CV Assistant. How can I help you learn more about his experience, skills, or qualifications?
-            </div>
-            <!-- Messages will be added here -->
+
+          <div class="mt-6 space-y-1">
+            <h3 class="text-lg font-semibold text-gray-700">Education</h3>
+            <p class="text-sm text-gray-600">BSc Management – Trinity College Dublin (1996 – 2000)</p>
+            <p class="text-sm text-gray-600">Diploma in Marketing – Dublin Institute of Technology (2001)</p>
           </div>
-          
-          <div class="cv-agent-footer">
-            <div class="flex items-center">
-              <input 
-                type="text" 
-                id="cv-agent-input" 
-                class="flex-grow p-2 border rounded-l-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
-                placeholder="Ask a question..."
-              />
-              <button 
-                id="cv-agent-send" 
-                class="bg-gradient-to-r from-green-500 to-blue-500 text-white p-2 rounded-r-lg"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                </svg>
-              </button>
-            </div>
+
+          <div class="mt-4 space-y-1">
+            <h3 class="text-lg font-semibold text-gray-700">Languages</h3>
+            <p class="text-sm text-gray-600">English – Native</p>
+            <p class="text-sm text-gray-600">French – Bilingual</p>
           </div>
         </div>
       </div>
+    </header>
+    
+    <!-- Summary -->
+    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Career Summary</h2>
+      <p class="text-lg mb-4 text-gray-700">
+        Over the past two decades, I've built and scaled an international beverage business by combining strategic insight, operational rigor, and emerging technology.
+      </p>
+    </section>
+    
+    <!-- Career Timeline -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 gradient-text">Professional Journey</h2>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Early Consulting and Academic Foundations</h3>
+        <p class="text-gray-500 font-medium mb-2">1995 - 2000</p>
+        <p class="text-gray-700">
+          I began my career at PwC Dublin in 1995 as a junior consultant in the Import-Export practice, advising clients on computer component classification under EU regulations. In 1996, I returned to full-time studies, earning a BSc in Management from Trinity College Dublin (1996–2000) and a Diploma in Marketing from Dublin Institute of Technology (2001). During a six-month placement at EBS Building Society Ireland, I advised retail clients on mortgage and investment products, reinforcing my passion for client-focused financial solutions.
+        </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Trade Marketing in France</h3>
+        <p class="text-gray-500 font-medium mb-2">2000 - 2004</p>
+        <p class="text-gray-700">
+          In 2000, I relocated to Paris to master French and joined Brasseries Kronenbourg's trade-marketing team. There, I designed a pilot program with key retail accounts in the on-trade in France. This program increased tap visibility by 50% through localized promotions, in-store tastings, live Irish music events, and bespoke POS materials.
+        </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Australian Experience</h3>
+        <p class="text-gray-500 font-medium mb-2">2004 - 2005</p>
+        <p class="text-gray-700">
+          In Melbourne, I managed a number of well-known Irish pubs before traveling the country for six months. Then in 2005, back to France, armed with lots of new ideas—notably screw-top wine and pubs. I saw the pubs zero wine waste.
+        </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Global Beverage Distribution</h3>
+        <p class="text-gray-500 font-medium mb-2">2005 - 2006</p>
+        <p class="text-gray-700">
+          Between 2005 and 2006, I supported boutique wineries in France with market development in Europe, the US, and Asia. I organized focused B2B events matching buyers and sellers, which led me to realize that a screw-cap French wine in the on-trade in France, marketed in English, was a great idea. It was: we ended up selling over 300,000 bottles over 10 years, with zero returns.
+        </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Entrepreneurial Growth with Direct Distribution</h3>
+        <p class="text-gray-500 font-medium mb-2">2006 - 2020</p>
+        <p class="text-gray-700">
+          In 2006, I co-founded Direct Distribution, a network for premium beverages and snacks. We started with 20 products and €45,000 in seed funding and grew annual revenue to €2 million within 6 years. By 2019, the portfolio expanded to 210 SKUs and turnover reached €2.4 million, with an average gross margin of 28%. My roles spanned warehouse layout optimization, demand forecasting, and key account management.
+        </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Digital Transformation During COVID-19</h3>
+        <p class="text-gray-500 font-medium mb-2">2020 - 2024</p>
+        <p class="text-gray-700">
+          When the pandemic hit in March 2020, I led our pivot to a consumer-facing e-commerce platform. I oversaw the development of a custom CRM and Shopify storefront, implemented a machine-learning model that reduced inventory shortfalls by 15%, and launched marketing automation that increased email engagement by 10%.
+        </p>
+      </div>
+      
+      <div class="timeline-item">
+        <h3 class="text-2xl font-semibold text-gray-800">Transition to AI-Powered SaaS</h3>
+        <p class="text-gray-500 font-medium mb-2">2024 - Present</p>
+        <p class="text-gray-700">
+          Today, I'm leveraging my cross-industry background to drive product strategy in the AI-powered SaaS sector. With certifications in Python and machine learning—and a recent project building of AI agents for SMEs —I'm poised to blend data science with my considerable sales, marketing and cross border project management and team building.
+        </p>
+      </div>
+      
+    </section>
+      
+    <!-- Core Competencies -->
+    <div class="grid md:grid-cols-2 gap-8 mb-16">
+      <section class="bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-semibold mb-2">Languages & Frameworks</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">HTML/CSS</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">AI & Tools</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">OpenAI</span>
+              <span class="skill-tag">IBM Watson</span>
+              <span class="skill-tag">CRM Systems</span>
+              <span class="skill-tag">Mailchimp</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">DevOps</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">GitHub Actions</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section class="bg-white shadow-lg rounded-lg p-6">
+        <h2 class="text-2xl font-bold mb-6 gradient-text">Business Capabilities</h2>
+        <div class="space-y-4">
+          <div>
+            <h3 class="font-semibold mb-2">Sales Strategy</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">B2B Sales</span>
+              <span class="skill-tag">Enterprise Sales</span>
+              <span class="skill-tag">CRM Management</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Leadership</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Team Development</span>
+              <span class="skill-tag">Cross-Functional Management</span>
+              <span class="skill-tag">Strategic Planning</span>
+            </div>
+          </div>
+          <div>
+            <h3 class="font-semibold mb-2">Go-To-Market</h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-tag">Digital Campaigns</span>
+              <span class="skill-tag">Brand Launches</span>
+              <span class="skill-tag">Market Research</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </header>
-  
-  <!-- Professional Journey -->
-  <section id="journey" class="mb-16 bg-white shadow-lg rounded-2xl p-8">
-    <h2 class="text-3xl font-bold mb-6 text-gray-900">Professional Journey</h2>
     
-    <p class="text-lg mb-4 text-gray-700">
-      I'm a growth-focused leader who's navigated the full arc of business—from Big Four consulting and financial services to scaling niche import ventures and leading direct-to-consumer transformations. Today, I'm blending that experience with next-gen tools to shape the future of AI-powered business.
-    </p>
+    <!-- Certifications -->
+    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Certifications</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="certification-item">
+          <h3 class="text-xl font-semibold">IBM AI Developer Professional Certificate</h3>
+          <p class="text-gray-600">IBM, 2024–2025</p>
+          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+            <li>AI application development</li>
+            <li>Generative AI integration</li>
+            <li>Python, JavaScript, HTML/CSS</li>
+            <li>Sales reporting AI agent</li>
+          </ul>
+        </div>
+        <div class="certification-item">
+          <h3 class="text-xl font-semibold">Generative AI Leadership & Strategy Specialization</h3>
+          <p class="text-gray-600">Vanderbilt University, 2024</p>
+          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+            <li>AI strategy</li>
+            <li>Business transformation</li>
+            <li>Productivity acceleration</li>
+            <li>Executive AI integration</li>
+          </ul>
+        </div>
+        <div class="certification-item">
+          <h3 class="text-xl font-semibold">Data Analytics in AI</h3>
+          <p class="text-gray-600">Jedha Bootcamp, Paris, 2024</p>
+          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+            <li>Data processing</li>
+            <li>Visualization</li>
+            <li>AI-powered decision making</li>
+          </ul>
+        </div>
+      </div>
+    </section>
     
-    <p class="text-lg mb-4 text-gray-700">
-      My career began at <strong>PwC Dublin</strong>, where I worked as a junior consultant in import/export classification for computer components. After a year in consulting, I transitioned into full-time academics—earning a <strong>BSc in Management from Trinity College Dublin</strong> and a <strong>Diploma in Marketing from DIT</strong>. I immersed myself in MBA-level disciplines including <em>corporate strategy, financial modeling, operations management, marketing analytics, organizational behavior, and competitive market positioning</em>. A six-month placement in financial services gave me hands-on experience advising clients on mortgages and investment products.
-    </p>
-
-    <p class="text-lg mb-4 text-gray-700">
-      In 2000, I relocated to France to refine my language skills and expand my international business experience. By 2001, I was managing key accounts and trade marketing for <strong>Brasseries Kronenbourg</strong>. Over the next few years, I successfully launched <strong>Beamish stout as a challenger to Guinness</strong> and played a pivotal role in putting <strong>Carlsberg and Foster's on the map in France</strong>, securing long-term volume contracts and national placements.
-    </p>
-
-    <p class="text-lg mb-4 text-gray-700">
-      In 2004, I moved to Australia to deepen my understanding of supplier ecosystems and global trends. I identified an opportunity to reintroduce Anglo-Irish specialty beverages to the French market. That insight led to a year in business development for boutique wineries across the U.S. and Europe.
-    </p>
-
-    <p class="text-lg mb-4 text-gray-700">
-      In 2006, I founded a direct-distribution network and scaled it over 15 years from a handful of SKUs to a <strong>€30M+ turnover</strong>, managing portfolios in wine, beer, cider, spirits, and snacks while leading on logistics, compliance, brand strategy, and retail execution.
-    </p>
-
-    <p class="text-lg mb-4 text-gray-700">
-      When the pandemic hit, I led a rapid transformation from B2B distribution to a consumer-facing e-commerce model—developing a <strong>custom CRM, AI-driven forecasting engine, and automated marketing infrastructure</strong> to fuel growth and resilience in uncertain times.
-    </p>
-
-    <p class="text-lg mb-4 text-gray-700">
-      Recently, I've been <strong>refocusing on upskilling</strong> in AI development, prompt engineering, and software innovation—bringing things full circle with a return to the <strong>SaaS space I first explored in 1996</strong>. With a career built on strategic insight, operational execution, and technical fluency, I'm now positioned to lead in the next wave of AI-native digital transformation.
-    </p>
-  </section>
-    
-  <!-- Core Competencies -->
-  <div class="grid md:grid-cols-2 gap-8 mb-16">
-    <section class="bg-white shadow-lg rounded-lg p-6">
-      <h2 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h2>
-      <div class="space-y-4">
-        <div>
-          <h3 class="font-semibold mb-2">Languages & Frameworks</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">Python</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">HTML/CSS</span>
+    <!-- Portfolio -->
+    <section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Notable Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- AI CV Agent -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+          <div class="h-48 bg-gradient-to-r from-green-500/30 to-blue-500/30 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">AI Sales Assistant</h3>
+            <p class="text-gray-600 text-sm">
+              Built an AI-powered assistant that helped our sales team analyze customer data and provide personalized recommendations, increasing conversion rates by 22%.
+            </p>
           </div>
         </div>
-        <div>
-          <h3 class="font-semibold mb-2">AI & Tools</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">OpenAI</span>
-            <span class="skill-tag">IBM Watson</span>
-            <span class="skill-tag">CRM Systems</span>
-            <span class="skill-tag">Mailchimp</span>
+        
+        <!-- CRM + Forecasting System -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+          <div class="h-48 bg-gradient-to-r from-purple-500/30 to-pink-500/30 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">Predictive Inventory System</h3>
+            <p class="text-gray-600 text-sm">
+              Designed and implemented an ML-based forecasting system that predicted seasonal demand patterns, reducing stockouts by 15% and improving cash flow.
+            </p>
           </div>
         </div>
-        <div>
-          <h3 class="font-semibold mb-2">DevOps</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">CI/CD</span>
-            <span class="skill-tag">GitHub Actions</span>
+        
+        <!-- E-Commerce Pivot -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+          <div class="h-48 bg-gradient-to-r from-yellow-500/30 to-red-500/30 flex items-center justify-center">
+            <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">B2C E-Commerce Transformation</h3>
+            <p class="text-gray-600 text-sm">
+              Led the rapid pivot from B2B distribution to a D2C e-commerce model during COVID-19, including implementation of Shopify, automated marketing, and personalized customer journeys.
+            </p>
           </div>
         </div>
       </div>
     </section>
     
-    <section class="bg-white shadow-lg rounded-lg p-6">
-      <h2 class="text-2xl font-bold mb-6 gradient-text">Business Capabilities</h2>
-      <div class="space-y-4">
-        <div>
-          <h3 class="font-semibold mb-2">Sales Strategy</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">B2B Sales</span>
-            <span class="skill-tag">Enterprise Sales</span>
-            <span class="skill-tag">CRM Management</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="font-semibold mb-2">Leadership</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">Team Development</span>
-            <span class="skill-tag">Cross-Functional Management</span>
-            <span class="skill-tag">Strategic Planning</span>
-          </div>
-        </div>
-        <div>
-          <h3 class="font-semibold mb-2">Go-To-Market</h3>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-tag">Digital Campaigns</span>
-            <span class="skill-tag">Brand Launches</span>
-            <span class="skill-tag">Market Research</span>
-          </div>
-        </div>
-      </div>
+    <!-- Contact Me -->
+    <section id="contact" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Me</h2>
+      <p>Want to get in touch? Email me directly at <a href="mailto:conorc33@gmail.com" class="text-blue-500 hover:underline">conorc33@gmail.com</a></p>
     </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 border-t">
+      <div class="flex justify-center space-x-4 mb-4">
+        <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:underline flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.028-3.152-1.922-3.152-1.922 0-2.218 1.502-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.379-1.559 2.841-1.559 3.037 0 3.6 2.001 3.6 4.601v5.591z"/>
+          </svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.305-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.649.24 2.871.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.102.81 2.22v3.293c0 .315.21.69.825.573 4.765-1.587 8.205-6.084 8.205-11.387 0-6.627-5.373-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+      <a href="#top" class="text-blue-500 hover:underline">Back to Top</a>
+      <p class="text-gray-600">© 2025 Conor Corcoran. All rights reserved.</p>
+    </footer>
   </div>
-  
-  <!-- Certifications -->
-  <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
-    <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Certifications</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="certification-item">
-        <h3 class="text-xl font-semibold">IBM AI Developer Professional Certificate</h3>
-        <p class="text-gray-600">IBM, 2024–2025</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-          <li>AI application development</li>
-          <li>Generative AI integration</li>
-          <li>Python, JavaScript, HTML/CSS</li>
-          <li>Sales reporting AI agent</li>
-        </ul>
-      </div>
-      <div class="certification-item">
-        <h3 class="text-xl font-semibold">Generative AI Leadership & Strategy Specialization</h3>
-        <p class="text-gray-600">Vanderbilt University, 2024</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-          <li>AI strategy</li>
-          <li>Business transformation</li>
-          <li>Productivity acceleration</li>
-          <li>Executive AI integration</li>
-        </ul>
-      </div>
-      <div class="certification-item">
-        <h3 class="text-xl font-semibold">Data Analytics in AI</h3>
-        <p class="text-gray-600">Jedha Bootcamp, Paris, 2024</p>
-        <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-          <li>Data processing</li>
-          <li>Visualization</li>
-          <li>AI-powered decision making</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Portfolio -->
-  <section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
-    <h2 class="text-3xl font-bold mb-6 gradient-text">Portfolio</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- AI CV Agent -->
-      <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="assets/images/project-ai-agent.svg" alt="AI CV Agent" class="w-full h-48 object-cover" />
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">AI CV Assistant</h3>
-          <p class="text-gray-600 text-sm">
-            An AI-powered agent trained to answer questions about my CV and share contact details. Built with GPT-4, Flask, and React.
-          </p>
-        </div>
-      </div>
-
-      <!-- CRM + Forecasting System -->
-      <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="assets/images/CRM-project-logo.svg" alt="CRM Forecasting Tool" class="w-full h-48 object-cover" />
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">Custom CRM + Forecasting Tool</h3>
-          <p class="text-gray-600 text-sm">
-            Built a bespoke CRM system with AI-powered forecasting for B2B sales. Included client segmentation, pipeline tracking, and predictive analytics dashboards.
-          </p>
-        </div>
-      </div>
-
-      <!-- E-Commerce Pivot -->
-      <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-        <img src="assets/images/ecommerce-project-logo.svg" alt="E-commerce Platform" class="w-full h-48 object-cover" />
-        <div class="p-4">
-          <h3 class="text-xl font-semibold mb-2">B2C E-Commerce Pivot</h3>
-          <p class="text-gray-600 text-sm">
-            Led a digital transformation from wholesale to online DTC. Built and scaled an e-commerce platform with CRM automations, customer segmentation, and campaign tracking.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Professional Experience -->
-  <section id="experience" class="mb-16 bg-white shadow-lg rounded-lg p-8 fade-in-up">
-    <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Experience</h2>
-    <div class="mb-8">
-      <h3 class="text-2xl font-semibold">Sales & Marketing Director | AI & Digital Strategy</h3>
-      <p class="text-lg text-gray-600">Direct Distribution, Paris, France (Oct 2006 – May 2024)</p>
-      <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700">
-        <li>Delivered 15%+ YoY growth; built pipeline with 800+ clients across 12 regions</li>
-        <li>Designed & implemented 5 CRM systems with integrated forecasting tools</li>
-        <li>Launched 60+ products via full Go-To-Market strategies</li>
-        <li>Managed €2.2M+ annual targets; created playbooks & performance dashboards</li>
-        <li>Built & led 30+ team members with 90%+ retention rate</li>
-      </ul>
-    </div>
-    
-    <div class="mb-8">
-      <h3 class="text-2xl font-semibold mb-1">
-        Sales and Key Accounts Manager <span class="font-normal">| Brand Expansion | National Sales</span>
-      </h3>
-      <p class="text-md italic text-gray-700 mb-1">Brasseries Kronenbourg, Paris, France</p>
-      <p class="text-sm text-gray-500 mb-4">September 2001 – March 2004</p>
-      <ul class="list-disc list-inside space-y-2 text-lg">
-        <li>Spearheaded the national rollout of Foster's and Carlsberg across 1,000+ on-trade outlets</li>
-        <li>Managed regional account teams, pricing structures, and promotional campaigns</li>
-        <li>Increased brand visibility through events, training programs, and POS strategy</li>
-      </ul>
-    </div>
-  </section>
-  
-  <!-- Personal Interests -->
-  <section id="interests" class="mb-16 bg-white shadow-lg rounded-lg p-8">
-    <h2 class="text-3xl font-bold mb-6 gradient-text">Personal Interests</h2>
-    <div class="flex flex-wrap gap-4">
-      <span class="skill-tag">Sports</span>
-      <span class="skill-tag">Swimming</span>
-      <span class="skill-tag">Boxing</span>
-      <span class="skill-tag">Cycling</span>
-      <span class="skill-tag">AI Innovation</span>
-      <span class="skill-tag">Hiking</span>
-      <span class="skill-tag">Cooking</span>
-      <span class="skill-tag">Reading</span>
-      <span class="skill-tag">Golf</span>
-    </div>
-    <p class="mt-4 text-gray-700">
-      An avid rugby and soccer supporter with a passion for sports. Despite being a "very bad golfer," I enjoy the walk.
-    </p>
-  </section>
-  
-  <!-- Contact Me -->
-  <section id="contact" class="mb-16 bg-white shadow-lg rounded-lg p-8">
-    <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Me</h2>
-    <form
-      action="https://formspree.io/f/xblojzal"
-      method="POST"
-      class="space-y-4"
-    >
-      <label class="block">
-        <span class="text-gray-700">Your Email:</span>
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </label>
-      <label class="block">
-        <span class="text-gray-700">Your Message:</span>
-        <textarea
-          name="message"
-          placeholder="Your Message"
-          class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          rows="5"
-          required
-        ></textarea>
-      </label>
-      <button
-        type="submit"
-        class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
-      >
-        Send
-      </button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer class="text-center py-8 border-t">
-    <div class="flex justify-center space-x-4 mb-4">
-      <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:underline flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.028-3.152-1.922-3.152-1.922 0-2.218 1.502-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.379-1.559 2.841-1.559 3.037 0 3.6 2.001 3.6 4.601v5.591z"/>
-        </svg>
-        LinkedIn
-      </a>
-      <a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.305-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.649.24 2.871.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.102.81 2.22v3.293c0 .315.21.69.825.573 4.765-1.587 8.205-6.084 8.205-11.387 0-6.627-5.373-12-12-12z"/>
-        </svg>
-        GitHub
-      </a>
-    </div>
-    <a href="#top" class="text-blue-500 hover:underline">Back to Top</a>
-    <p class="text-gray-600">&copy; 2025 Conor Corcoran. All rights reserved.</p>
-  </footer>
-</div>
-
-<!-- CV Search Agent (Custom Implementation) -->
-<div class="cv-agent-toggle" id="cv-agent-toggle">
-  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-4l-4 4z" />
-  </svg>
-</div>
-
-<div class="cv-agent-container" id="cv-agent-container">
-  <!-- Duplicate CV agent content -->
-</div>
-
-<script>
-  // Updated CV Agent Functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const input = document.getElementById('cv-agent-input');
-  const sendBtn = document.getElementById('cv-agent-send');
-  const messagesDiv = document.getElementById('cv-agent-messages');
-  
-  // Conversation tracking for multi-turn conversations
-  let conversationContext = {
-    lastTopic: null,
-    mentionedTopics: new Set(),
-    questionCount: 0
-  };
-  
-  // Enhanced, more detailed responses
-  const enhancedResponses = {
-    "experience": {
-      mainResponse: "Conor has over 20 years of experience in sales and business development. At Direct Distribution (2006-2024), he scaled the business to €30M+ turnover and led their digital transformation. Previously at Brasseries Kronenbourg (2001-2004), he spearheaded national rollouts of major brands. His career began at PwC as a junior consultant in import-export.",
-      followUp: "Would you like to know more about his experience in a particular industry or role?"
-    },
-    "skills": {
-      mainResponse: "Conor's technical skills include Python, JavaScript, TypeScript, and HTML/CSS. His AI expertise covers OpenAI and IBM Watson platforms. His business capabilities span B2B Sales, Enterprise Sales, CRM Management, Team Development, Cross-Functional Management, Strategic Planning, Digital Campaigns, Brand Launches, and Market Research.",
-      followUp: "Is there a specific skill area you'd like more details about?"
-    },
-    "education": {
-      mainResponse: "Conor earned a BSc in Management and a Diploma in Marketing from Dublin Institute of Technology between 1996-2000. His education covered core MBA modules including strategy, finance, operations, organizational behavior, and marketing.",
-      followUp: "He's also completed several professional certifications. Would you like to know about those?"
-    },
-    "certifications": {
-      mainResponse: "Conor holds an IBM AI Developer Professional Certificate (2024-2025), covering AI application development, generative AI integration, and programming languages. He completed a Generative AI Leadership & Strategy Specialization from Vanderbilt University (2024) focused on business transformation and executive AI integration. Additionally, he studied Data Analytics in AI at Jedha Bootcamp, Paris (2024).",
-      followUp: "How is AI expertise relevant to the role you're considering him for?"
-    },
-    "ai": {
-      mainResponse: "Conor has significant AI experience, having implemented AI-driven forecasting tools and marketing automation systems during the digital transformation of his business. He's certified in AI development through IBM and completed specialized training in Generative AI Leadership at Vanderbilt University. His hands-on experience includes developing custom AI agents and integrating them with CRM systems.",
-      followUp: "Are you more interested in his technical AI implementation work or his strategic approach to AI adoption?"
-    },
-    "languages": {
-      mainResponse: "Conor speaks English (native) and French (bilingual). He relocated to France in 2000 to deepen his language skills and has been working in French business environments for over 20 years.",
-      followUp: "Does your organization have international operations where his language skills would be valuable?"
-    },
-    "contact": {
-      mainResponse: "You can reach Conor via email at conorc33@gmail.com or by phone at +33 6 62 04 85 09. He's currently based in Paris, France and is open to opportunities globally.",
-      followUp: "Would you like me to provide information about his availability for interviews?"
-    },
-    "sales": {
-      mainResponse: "Conor has extensive sales leadership experience across multiple sectors. At Direct Distribution, he delivered 15%+ YoY growth, built a pipeline with 800+ clients across 12 regions, and managed €2.2M+ annual targets. Earlier at Brasseries Kronenbourg, he led the rollout of major brands across 1,000+ on-trade outlets.",
-      followUp: "Would you like to know more about his enterprise sales approach or his experience with CRM systems?"
-    },
-    "leadership": {
-      mainResponse: "Conor has demonstrated strong leadership throughout his career. He built and led a team of 30+ members with a 90%+ retention rate at Direct Distribution. His approach focuses on cross-functional collaboration, strategic planning, and empowering team members through mentoring and skills development.",
-      followUp: "Is leadership a key component of the role you're considering?"
-    },
-    "digital": {
-      mainResponse: "When COVID-19 forced a strategic pivot in 2020, Conor led a complete digital transformation, converting a traditional B2B distribution model to a consumer-facing e-commerce platform. This included implementing custom CRM systems, AI-driven forecasting tools, and marketing automation.",
-      followUp: "Would you like specific examples of the digital strategies he implemented?"
-    }
-  };
-  
-  // Default response for when no keywords match
-  const defaultResponse = "I'd be happy to tell you about Conor's professional background. He has over 20 years of experience across consulting, banking, and FMCG industries, with expertise in sales leadership, team development, and recently AI strategy. What specific aspect would you like to know more about?";
-  
-  // Function to handle job description matching
-  const handleJobMatch = (jobText) => {
-    // Define key skills and experience keywords to look for in job descriptions
-    const keySkills = [
-      { term: "sales", category: "Sales" },
-      { term: "b2b", category: "Sales" },
-      { term: "business development", category: "Sales" },
-      { term: "revenue", category: "Sales" },
-      { term: "client", category: "Sales" },
-      { term: "account", category: "Sales" },
-      
-      { term: "leadership", category: "Leadership" },
-      { term: "manage", category: "Leadership" },
-      { term: "team", category: "Leadership" },
-      { term: "direct", category: "Leadership" },
-      { term: "strategic", category: "Leadership" },
-      { term: "strategy", category: "Leadership" },
-      
-      { term: "ai", category: "Technical" },
-      { term: "artificial intelligence", category: "Technical" },
-      { term: "machine learning", category: "Technical" },
-      { term: "data", category: "Technical" },
-      { term: "python", category: "Technical" },
-      { term: "javascript", category: "Technical" },
-      { term: "typescript", category: "Technical" },
-      { term: "forecasting", category: "Technical" },
-      
-      { term: "crm", category: "Systems" },
-      { term: "saas", category: "Systems" },
-      { term: "software", category: "Systems" },
-      { term: "implementation", category: "Systems" },
-      { term: "digital", category: "Systems" },
-      { term: "transformation", category: "Systems" },
-      { term: "e-commerce", category: "Systems" },
-      { term: "automation", category: "Systems" },
-      
-      { term: "marketing", category: "Marketing" },
-      { term: "brand", category: "Marketing" },
-      { term: "campaign", category: "Marketing" },
-      { term: "product", category: "Marketing" },
-      { term: "market", category: "Marketing" },
-      
-      { term: "international", category: "International" },
-      { term: "global", category: "International" },
-      { term: "french", category: "International" },
-      { term: "europe", category: "International" },
-      
-      { term: "wine", category: "Industry" },
-      { term: "beverage", category: "Industry" },
-      { term: "fmcg", category: "Industry" },
-      { term: "distribution", category: "Industry" },
-      { term: "retail", category: "Industry" },
-      { term: "consumer", category: "Industry" }
-    ];
-    
-    // Count how many skills match the job description
-    const matchingSkills = keySkills.filter(skill => 
-      jobText.toLowerCase().includes(skill.term.toLowerCase())
-    );
-    
-    // Group matching skills by category for better analysis
-    const matchesByCategory = {};
-    matchingSkills.forEach(skill => {
-      if (!matchesByCategory[skill.category]) {
-        matchesByCategory[skill.category] = [];
-      }
-      matchesByCategory[skill.category].push(skill.term);
-    });
-    
-    // Get the top 3 categories with the most matches
-    const topCategories = Object.entries(matchesByCategory)
-      .sort((a, b) => b[1].length - a[1].length)
-      .slice(0, 3);
-    
-    // Calculate a match percentage - never go above 95% to maintain credibility
-    const matchPercentage = Math.min(Math.round((matchingSkills.length / 10) * 100), 95);
-    
-    // Generate personalized response based on match percentage
-    if (matchPercentage > 75) {
-      const topCategoryNames = topCategories.map(c => c[0]).join(", ");
-      const topSkills = matchingSkills.slice(0, 6).map(s => s.term);
-      
-      return `Based on this job description, Conor appears to be an excellent match (${matchPercentage}% alignment)!
-
-I've identified several key areas of strong alignment, particularly in ${topCategoryNames}. The description mentions ${topSkills.slice(0, 3).join(", ")}, and ${topSkills.length > 3 ? topSkills.slice(3, 6).join(", ") : ""}, which directly match Conor's experience.
-
-Particularly relevant is his:
-• 18-year track record scaling a distribution business to €30M+
-• Implementation of AI-driven forecasting tools and CRM systems
-• Leadership in digital transformation initiatives
-• Experience managing teams of 30+ across multiple regions
-
-Would you like specific examples from his career that demonstrate these qualifications?`;
-    } else if (matchPercentage > 50) {
-      const topCategoryNames = topCategories.map(c => c[0]).join(" and ");
-      const topSkills = matchingSkills.slice(0, 4).map(s => s.term);
-      
-      return `Based on my analysis, Conor has a good match (${matchPercentage}% alignment) with this role, particularly in ${topCategoryNames}.
-
-His background in ${topSkills.join(", ")} seems particularly relevant. Some highlights that match your requirements:
-• ${topCategories[0][1].length > 0 ? `Strong ${topCategories[0][0]} experience including ${topCategories[0][1].slice(0, 2).join(" and ")}` : ""}
-• ${topCategories.length > 1 && topCategories[1][1].length > 0 ? `Proven ${topCategories[1][0]} capabilities, particularly in ${topCategories[1][1][0]}` : ""}
-• Adaptability demonstrated through business pivot during COVID-19
-
-Would you like to discuss how his transferable skills could apply to the specific challenges mentioned in this position?`;
-    } else {
-      // Lower match, but still find relevant transferable skills
-      return `While this specific role has some differences from Conor's core experience (${matchPercentage}% direct alignment), his adaptability and diverse background could still make him an interesting candidate.
-
-His experience transitioning from traditional sales to AI-powered solutions demonstrates his ability to evolve with market demands. His career spans consulting, FMCG, and technology implementation which has built versatile problem-solving capabilities.
-
-The most relevant transferable skills for this role appear to be his:
-• ${matchingSkills.length > 0 ? matchingSkills[0].term : "strategic planning"} experience
-• ${matchingSkills.length > 1 ? matchingSkills[1].term : "team leadership"} capabilities
-• Comfort with emerging technologies and digital transformation
-
-Would you like to discuss which aspects of his experience might be most relevant to the specific challenges in this position?`;
-    }
-  };
-  
-  // Send a message
-  function sendMessage() {
-    const userQuery = input.value.trim();
-    if (userQuery === '') return;
-    
-    // Add user message
-    addMessage(userQuery, 'user');
-    
-    // Process the query and respond
-    setTimeout(() => {
-      const response = getResponse(userQuery);
-      addMessage(response, 'agent');
-    }, 500);
-    
-    // Clear input
-    input.value = '';
-  }
-  
-  // Get a response based on the user's query
-  function getResponse(query) {
-    // Update conversation context
-    conversationContext.questionCount++;
-    
-    // Check if this is likely a job description (longer text with multiple lines)
-    if (query.length > 150 && (query.includes('\n') || query.split('. ').length > 4)) {
-      return handleJobMatch(query);
-    }
-    
-    // Normalize query for matching
-    const normalizedQuery = query.toLowerCase();
-    
-    // Determine the main topic of the query
-    let mainTopic = null;
-    let highestMatchScore = 0;
-    
-    // Find the best matching topic using a scoring approach
-    for (const topic in enhancedResponses) {
-      // Skip if we already talked about this topic extensively
-      if (conversationContext.mentionedTopics.has(topic) && 
-          conversationContext.lastTopic === topic && 
-          Math.random() > 0.7) {
-        continue;
-      }
-      
-      // Calculate how relevant this topic is to the query
-      const topicWords = topic.split(/\s+/);
-      let score = 0;
-      
-      // Check direct inclusion of the topic
-      if (normalizedQuery.includes(topic)) {
-        score += 10;
-      }
-      
-      // Check for individual words
-      topicWords.forEach(word => {
-        if (normalizedQuery.includes(word)) {
-          score += 5;
-        }
-      });
-      
-      // Check for related terms
-      const relatedTerms = {
-        "experience": ["background", "history", "career", "job", "work", "role", "position"],
-        "skills": ["abilities", "capable", "proficient", "qualified", "competent", "expertise"],
-        "education": ["degree", "university", "college", "study", "qualification", "academic"],
-        "certifications": ["certified", "qualification", "diploma", "training", "courses"],
-        "ai": ["artificial intelligence", "ml", "machine learning", "chatbot", "automation", "smart"],
-        "languages": ["speak", "french", "english", "communication"],
-        "contact": ["email", "phone", "reach", "call", "message", "connect"],
-        "sales": ["sell", "revenue", "business development", "customers", "clients", "accounts"],
-        "leadership": ["manage", "lead", "direct", "head", "oversee", "run", "supervise", "team"],
-        "digital": ["technology", "online", "e-commerce", "web", "platform", "internet", "transform"]
-      };
-      
-      if (relatedTerms[topic]) {
-        relatedTerms[topic].forEach(term => {
-          if (normalizedQuery.includes(term)) {
-            score += 3;
-          }
-        });
-      }
-      
-      // Update the main topic if this is the best match so far
-      if (score > highestMatchScore) {
-        highestMatchScore = score;
-        mainTopic = topic;
-      }
-    }
-    
-    // Handle specific questions not covered by topics
-    if (normalizedQuery.includes("who") && normalizedQuery.includes("you")) {
-      return "I'm an AI assistant specifically trained to answer questions about Conor Corcoran's professional background, skills, and experience. I can provide details about his work history, technical abilities, and qualifications to help you determine if he might be a good fit for your organization.";
-    }
-    
-    if ((normalizedQuery.includes("looking") && normalizedQuery.includes("for")) || 
-        normalizedQuery.includes("hiring") || 
-        normalizedQuery.includes("recruit") ||
-        normalizedQuery.includes("interview") ||
-        normalizedQuery.includes("available")) {
-      return "Great! Conor is currently open to new opportunities in AI Strategy, Sales Leadership, and Digital Transformation roles. He's available for interviews and can be reached directly at conorc33@gmail.com or +33 6 62 04 85 09. Would you like me to highlight specific aspects of his experience that might be relevant to your opening?";
-    }
-    
-    // Update conversation context with the detected topic
-    if (mainTopic) {
-      conversationContext.lastTopic = mainTopic;
-      conversationContext.mentionedTopics.add(mainTopic);
-    }
-    
-    // Generate personalized response based on the query
-    if (mainTopic && highestMatchScore > 2) {
-      const response = enhancedResponses[mainTopic];
-      
-      // Add follow-up suggestion based on conversation progress
-      let fullResponse = response.mainResponse;
-      
-      // Add follow-up question if this isn't a very long conversation yet
-      if (conversationContext.questionCount < 5) {
-        fullResponse += "\n\n" + response.followUp;
-      } 
-      // Offer to connect with Conor after several exchanges
-      else if (conversationContext.questionCount >= 5 && !conversationContext.mentionedTopics.has("contact")) {
-        fullResponse += "\n\nYou've asked several good questions about Conor's background. Would you like his direct contact information to continue the conversation?";
-      }
-      
-      return fullResponse;
-    }
-    
-    // Return default response if no specific match
-    return defaultResponse;
-  }
-  
-  // Add a message to the chat
-  function addMessage(content, sender) {
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message');
-    messageDiv.classList.add(sender === 'user' ? 'user-message' : 'agent-message');
-    
-    // Replace newlines with <br> for proper formatting
-    messageDiv.innerHTML = content.replace(/\n/g, '<br>');
-    
-    messagesDiv.appendChild(messageDiv);
-    
-    // Scroll to bottom
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
-  }
-  
-  // Add conversation starters after a delay
-  setTimeout(() => {
-    if (messagesDiv.childElementCount <= 1) {
-      const suggestionDiv = document.createElement('div');
-      suggestionDiv.className = 'agent-message';
-      suggestionDiv.innerHTML = `
-        I can help you learn more about Conor. Try asking about:
-        <div class="flex flex-wrap gap-1 mt-2">
-          <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs py-1 px-2 rounded-full suggestion-btn">Skills & expertise</button>
-          <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs py-1 px-2 rounded-full suggestion-btn">AI experience</button>
-          <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs py-1 px-2 rounded-full suggestion-btn">Leadership style</button>
-          <button class="bg-gray-100 hover:bg-gray-200 text-gray-800 text-xs py-1 px-2 rounded-full suggestion-btn">Paste a job description</button>
-        </div>
-      `;
-      messagesDiv.appendChild(suggestionDiv);
-      
-      // Add click handlers for suggestion buttons
-      document.querySelectorAll('.suggestion-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          input.value = btn.textContent;
-          sendMessage();
-        });
-      });
-    }
-  }, 5000);
-  
-  // Event listeners
-  sendBtn.addEventListener('click', sendMessage);
-  
-  input.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      sendMessage();
-    }
-  });
-
-</script>
-<!-- For React implementation, include this div and script reference -->
-<!-- <div id="cv-search-root"></div> -->
-<!-- <script src="./client/build/static/js/main.f1b61a50.js"></script> -->
+</body>
+</html>

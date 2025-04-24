@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Conor Corcoran – Stratégie IA & Leadership Commercial</title>
+<!-- Use standard Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link
+href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+rel="stylesheet"
+/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+:root {
+--primary-green: #6BA959;
+--primary-blue: #71C9EF;
+--dark-text: #1E293B;
+--light-text: #64748B;
+}
+body {
+font-family: 'Inter', sans-serif;
+background-color: #f9fafb;
+}
+h1, h2, h3 {
+font-family: 'Poppins', sans-serif;
+}
+.gradient-text {
+background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.skill-tag {
+background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
+color: white;
+padding: 0.5rem 1rem;
+border-radius: 50px;
+font-size: 0.9rem;
+font-weight: 500;
+}
+.certification-item {
+border-left: 4px solid var(--primary-green);
+padding-left: 1rem;
+padding-top: 1rem;
+padding-bottom: 1rem;
+}
+header {
+background: linear-gradient(to right, rgba(107, 169, 89, 0.1), rgba(113, 201, 239, 0.1)), url('assets/images/background.jpg');
+background-size: cover;
+background-position: center;
+color: #1E293B;
+}
+header h1 {
+font-size: 3.5rem;
+line-height: 1.2;
+}
+header a {
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+}
+a:hover {
+text-decoration: underline;
+}
+img:hover {
+transform: scale(1.05);
+transition: transform 0.3s ease-in-out;
+}
+.skill-tag:hover {
+background: var(--primary-blue);
+color: white;
+transition: background 0.3s ease-in-out;
+}
+.grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+}
+
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+.fade-in-up {
+animation: fadeInUp 1s ease-in-out;
+}
+
+.timeline-item {
+position: relative;
+padding-left: 2rem;
+margin-bottom: 2.5rem;
+}
+
+.timeline-item::before {
+content: "";
+position: absolute;
+left: 0;
+top: 0;
+width: 6px;
+height: 100%;
+background: linear-gradient(to bottom, var(--primary-green), var(--primary-blue));
+border-radius: 3px;
+}
+
+.timeline-item::after {
+content: "";
+position: absolute;
+left: -7px;
+top: 0;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<div id="top" class="container mx-auto px-4 max-w-6xl">
+<div class="flex justify-end py-4">
+<a href="index.html" class="bg-white rounded-full px-4 py-2 shadow flex items-center gap-2 text-sm hover:shadow-md transition-all">
+<span class="text-gray-700">Passer à l'anglais</span>
+<span class="w-6 h-4 rounded-sm overflow-hidden shadow-sm">
+  <img src="https://flagcdn.com/w40/ie.png" alt="Irish Flag" class="w-full h-full object-cover" />
+</span>
+</a>
+</div>
+
+<header class="py-16 bg-gradient-to-r from-green-600/10 to-blue-500/10 rounded-lg mb-16">
+<div class="flex flex-col md:flex-row items-center md:space-x-12">
+<div class="w-full md:w-1/3 mb-8 md:mb-0">
+  <div class="relative">
+    <img
+      src="assets/images/conor c pic.png"
+      alt="Conor Corcoran"
+      loading="lazy"
+      class="rounded-2xl shadow-2xl border-4 border-white transform transition-all hover:scale-105"
+    />
+    <div class="absolute bottom-0 right-0 bg-green-500 text-white px-3 py-1 rounded-tl-lg text-sm">
+      Ouvert aux opportunités
+    </div>
+  </div>
+</div>
+<div class="w-full md:w-2/3 space-y-4">
+  <div>
+    <h1 class="text-5xl font-bold mb-2 gradient-text">Conor Corcoran</h1>
+    <p class="text-2xl text-gray-600">Directeur Commercial & Stratégie IA</p>
+  </div>
+
+  <div class="flex flex-wrap items-center gap-4">
+    <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+      </svg>
+      <span class="text-xs">Paris, France</span>
+    </div>
+
+    <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+      </svg>
+      <span class="text-xs">+33 6 62 04 85 09</span>
+    </div>
+
+    <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+      </svg>
+      <span class="text-xs">conorc33@gmail.com</span>
+    </div>
+  </div>
+
+  <div class="mt-6 space-y-1">
+    <h3 class="text-lg font-semibold text-gray-700">Formation</h3>
+    <p class="text-sm text-gray-600">BSc Management – Trinity College Dublin (1996 – 2000)</p>
+    <p class="text-sm text-gray-600">Diplôme en Marketing – Dublin Institute of Technology (2001)</p>
+  </div>
+
+  <div class="mt-4 space-y-1">
+    <h3 class="text-lg font-semibold text-gray-700">Langues</h3>
+    <p class="text-sm text-gray-600">Anglais – Natif</p>
+    <p class="text-sm text-gray-600">Français – Bilingue</p>
+  </div>
+</div>
+</div>
+</header>
+<div class="flex justify-end py-4">
+<a href="index.html" class="bg-white rounded-full px-4 py-2 shadow flex items-center gap-2 text-sm hover:shadow-md transition-all">
+<span class="text-gray-700">Passer à l'anglais</span>
+<span class="w-6 h-4 rounded-sm overflow-hidden shadow-sm">
+  <img src="https://flagcdn.com/w40/ie.png" alt="Irish Flag" class="w-full h-full object-cover" />
+</span>
+</a>
+</div>
+<!-- Summary -->
+<section class="mb-16 bg-white shadow-lg rounded-lg p-8">
+<h2 class="text-3xl font-bold mb-6 gradient-text">Résumé de Carrière</h2>
+<p class="text-lg mb-4 text-gray-700">
+Au cours des deux dernières décennies, j'ai développé une entreprise internationale de boissons en combinant vision stratégique, rigueur opérationnelle et technologies émergentes.
+</p>
+</section>
+
+<!-- Career Timeline -->
+<section class="mb-16">
+<h2 class="text-3xl font-bold mb-8 gradient-text">Parcours Professionnel</h2>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Débuts en Conseil et Fondations Académiques</h3>
+<p class="text-gray-500 font-medium mb-2">1995 - 2000</p>
+<p class="text-gray-700">
+  J'ai commencé ma carrière chez PwC Dublin en 1995 en tant que consultant junior dans le département Import-Export, conseillant les clients sur la classification des composants informatiques selon les réglementations européennes. En 1996, je suis retourné aux études à plein temps, obtenant un BSc en Management au Trinity College Dublin (1996-2000) et un Diplôme en Marketing au Dublin Institute of Technology (2001). Pendant un stage de six mois à l'EBS Building Society Ireland, j'ai conseillé des clients particuliers sur des produits hypothécaires et d'investissement, renforçant ma passion pour les solutions financières centrées sur le client.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Trade Marketing en France</h3>
+<p class="text-gray-500 font-medium mb-2">2000 - 2004</p>
+<p class="text-gray-700">
+  En 2000, je me suis installé à Paris pour maîtriser le français et j'ai rejoint l'équipe de trade-marketing de Brasseries Kronenbourg. J'y ai conçu un programme pilote avec des comptes clés de la distribution dans le circuit CHR en France. Ce programme a augmenté la visibilité des pompes à bière de 50 % grâce à des promotions localisées, des dégustations en magasin, des événements de musique irlandaise en direct et du matériel PLV sur mesure.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Expérience Australienne</h3>
+<p class="text-gray-500 font-medium mb-2">2004 - 2005</p>
+<p class="text-gray-700">
+  À Melbourne, j'ai géré plusieurs pubs irlandais renommés avant de voyager à travers le pays pendant six mois. Puis en 2005, de retour en France, armé de nombreuses nouvelles idées — notamment les vins à capsule à vis et les pubs. J'ai constaté que les pubs avaient zéro déchet de vin.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Distribution Mondiale de Boissons</h3>
+<p class="text-gray-500 font-medium mb-2">2005 - 2006</p>
+<p class="text-gray-700">
+  Entre 2005 et 2006, j'ai soutenu des domaines viticoles boutiques en France dans leur développement de marché en Europe, aux États-Unis et en Asie. J'ai organisé des événements B2B ciblés mettant en relation acheteurs et vendeurs, ce qui m'a amené à réaliser qu'un vin français à capsule à vis dans le circuit CHR en France, commercialisé en anglais, était une excellente idée. En effet : nous avons vendu plus de 300 000 bouteilles sur 10 ans, sans aucun retour.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Croissance Entrepreneuriale avec Direct Distribution</h3>
+<p class="text-gray-500 font-medium mb-2">2006 - 2020</p>
+<p class="text-gray-700">
+  En 2006, j'ai co-fondé Direct Distribution, un réseau dédié aux boissons et snacks premium. Nous avons démarré avec 20 produits et 45 000 € de financement initial, pour atteindre un chiffre d'affaires annuel de 2 millions d'euros en 6 ans. En 2019, le portefeuille s'est élargi à 210 références et le chiffre d'affaires a atteint 2,4 millions d'euros, avec une marge brute moyenne de 28 %. Mes rôles couvraient l'optimisation de l'agencement des entrepôts, la prévision de la demande et la gestion des comptes clés.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Transformation Digitale Pendant la COVID-19</h3>
+<p class="text-gray-500 font-medium mb-2">2020 - 2024</p>
+<p class="text-gray-700">
+  Lorsque la pandémie a frappé en mars 2020, j'ai dirigé notre pivot vers une plateforme e-commerce orientée consommateur. J'ai supervisé le développement d'un CRM personnalisé et d'une vitrine Shopify, mis en place un modèle d'apprentissage automatique qui a réduit les ruptures de stock de 15 %, et lancé une automatisation marketing qui a augmenté l'engagement des emails de 10 %.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3 class="text-2xl font-semibold text-gray-800">Transition vers le SaaS basé sur l'IA</h3>
+<p class="text-gray-500 font-medium mb-2">2024 - Présent</p>
+<p class="text-gray-700">
+  Aujourd'hui, j'exploite mon expérience intersectorielle pour piloter la stratégie produit dans le secteur du SaaS propulsé par l'IA. Avec des certifications en Python et en apprentissage automatique — et un projet récent de développement d'agents IA pour les PME — je suis prêt à combiner la science des données avec mes compétences considérables en vente, marketing, gestion de projets transfrontaliers et constitution d'équipes.
+</p>
+</div>
+</section>
+
+<!-- Core Competencies -->
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+<section class="bg-white shadow-lg rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6 gradient-text">Compétences Techniques</h2>
+<div class="space-y-4">
+  <div>
+    <h3 class="font-semibold mb-2">Langages & Frameworks</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">JavaScript</span>
+      <span class="skill-tag">TypeScript</span>
+      <span class="skill-tag">HTML/CSS</span>
+    </div>
+  </div>
+  <div>
+    <h3 class="font-semibold mb-2">IA & Outils</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag">OpenAI</span>
+      <span class="skill-tag">IBM Watson</span>
+      <span class="skill-tag">Systèmes CRM</span>
+      <span class="skill-tag">Mailchimp</span>
+    </div>
+  </div>
+  <div>
+    <h3 class="font-semibold mb-2">DevOps</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag">Docker</span>
+      <span class="skill-tag">CI/CD</span>
+      <span class="skill-tag">GitHub Actions</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<section class="bg-white shadow-lg rounded-lg p-6">
+<h2 class="text-2xl font-bold mb-6 gradient-text">Compétences Commerciales</h2>
+<div class="space-y-4">
+  <div>
+    <h3 class="font-semibold mb-2">Stratégie Commerciale</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag">Ventes B2B</span>
+      <span class="skill-tag">Ventes Entreprises</span>
+      <span class="skill-tag">Gestion CRM</span>
+    </div>
+  </div>
+  <div>
+    <h3 class="font-semibold mb-2">Leadership</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag">Développement d'Équipe</span>
+      <span class="skill-tag">Gestion Transversale</span>
+      <span class="skill-tag">Planification Stratégique</span>
+    </div>
+  </div>
+  <div>
+    <h3 class="font-semibold mb-2">Mise sur le Marché</h3>
+    <div class="flex flex-wrap gap-2">
+      <span class="skill-tag">Campagnes Digitales</span>
+      <span class="skill-tag">Lancements de Marques</span>
+      <span class="skill-tag">Études de Marché</span>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+
+<!-- Certifications -->
+<section class="mb-16 bg-white shadow-lg rounded-lg p-8">
+<h2 class="text-3xl font-bold mb-6 gradient-text">Certifications Professionnelles</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="certification-item">
+  <h3 class="text-xl font-semibold">IBM AI Developer Professional Certificate</h3>
+  <p class="text-gray-600">IBM, 2024–2025</p>
+  <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+    <li>Développement d'applications IA</li>
+    <li>Intégration d'IA générative</li>
+    <li>Python, JavaScript, HTML/CSS</li>
+    <li>Agent IA de reporting commercial</li>
+  </ul>
+</div>
+<div class="certification-item">
+  <h3 class="text-xl font-semibold">Spécialisation Leadership & Stratégie en IA Générative</h3>
+  <p class="text-gray-600">Université Vanderbilt, 2024</p>
+  <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+    <li>Stratégie IA</li>
+    <li>Transformation d'entreprise</li>
+    <li>Accélération de la productivité</li>
+    <li>Intégration de l'IA au niveau exécutif</li>
+  </ul>
+</div>
+<div class="certification-item">
+  <h3 class="text-xl font-semibold">Analyse de Données en IA</h3>
+  <p class="text-gray-600">Jedha Bootcamp, Paris, 2024</p>
+  <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+    <li>Traitement des données</li>
+    <li>Visualisation</li>
+    <li>Prise de décision assistée par IA</li>
+  </ul>
+</div>
+</div>
+</section>
+
+<!-- Portfolio -->
+<section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+<h2 class="text-3xl font-bold mb-6 gradient-text">Projets Notables</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- AI CV Agent -->
+<div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+  <div class="h-48 bg-gradient-to-r from-green-500/30 to-blue-500/30 flex items-center justify-center">
+    <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
+      <line x1="9" y1="9" x2="9.01" y2="9"></line>
+      <line x1="15" y1="9" x2="15.01" y2="9"></line>
+    </svg>
+  </div>
+  <div class="p-4">
+    <h3 class="text-xl font-semibold mb-2">Assistant Commercial IA</h3>
+    <p class="text-gray-600 text-sm">
+      Création d'un assistant propulsé par l'IA qui a aidé notre équipe commerciale à analyser les données clients et à fournir des recommandations personnalisées, augmentant les taux de conversion de 22%.
+    </p>
+  </div>
+</div>
+
+<!-- CRM + Forecasting System -->
+<div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+  <div class="h-48 bg-gradient-to-r from-purple-500/30 to-pink-500/30 flex items-center justify-center">
+    <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+    </svg>
+  </div>
+  <div class="p-4">
+    <h3 class="text-xl font-semibold mb-2">Système d'Inventaire Prédictif</h3>
+    <p class="text-gray-600 text-sm">
+      Conception et mise en œuvre d'un système de prévision basé sur le ML qui prédisait les modèles de demande saisonnière, réduisant les ruptures de stock de 15% et améliorant les flux de trésorerie.
+    </p>
+  </div>
+</div>
+
+<!-- E-Commerce Pivot -->
+<div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+  <div class="h-48 bg-gradient-to-r from-yellow-500/30 to-red-500/30 flex items-center justify-center">
+    <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="21" r="1"></circle>
+      <circle cx="20" cy="21" r="1"></circle>
+      <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+    </svg>
+  </div>
+  <div class="p-4">
+    <h3 class="text-xl font-semibold mb-2">Transformation E-Commerce B2C</h3>
+    <p class="text-gray-600 text-sm">
+      Direction du pivot rapide de la distribution B2B vers un modèle e-commerce D2C pendant la COVID-19, incluant l'implémentation de Shopify, l'automatisation marketing et des parcours clients personnalisés.
+    </p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Contact Me -->
+<section id="contact" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+<h2 class="text-3xl font-bold mb-6 gradient-text">Contactez-moi</h2>
+<p>Vous souhaitez me contacter ? Envoyez-moi un email directement à <a href="mailto:conorc33@gmail.com" class="text-blue-500 hover:underline">conorc33@gmail.com</a></p>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-8 border-t">
+<div class="flex justify-center space-x-4 mb-4">
+<a href="https://linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:underline flex items-center gap-2" aria-label="LinkedIn Profile">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.028-3.152-1.922-3.152-1.922 0-2.218 1.502-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.379-1.559 2.841-1.559 3.037 0 3.6 2.001 3.6 4.601v5.591z"/>
+  </svg>
+  LinkedIn
+</a>
+<a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline flex items-center gap-2" aria-label="GitHub Profile">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.305-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.649.24 2.871.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.102.81 2.22v3.293c0 .315.21.69.825.573 4.765-1.587 8.205-6.084 8.205-11.387 0-6.627-5.373-12-12-12z"/>
+  </svg>
+  GitHub
+</a>
+</div>
+<a href="#top" class="text-blue-500 hover:underline">Retour en Haut</a>
+<p class="text-gray-600">© 2025 Conor Corcoran. Tous droits réservés.</p>
+</footer>
+</body>
+</html>
