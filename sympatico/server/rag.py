@@ -1,22 +1,16 @@
 from __future__ import annotations
 from typing import List, Dict, Tuple
-import re, json, os, asyncio
+import re, json, os
 from dotenv import load_dotenv
 
 import faiss
 import numpy as np
-from openai import OpenAI, APIConnectionError, RateLimitError
+from openai import OpenAI
 
 from settings import settings
 
 # Load environment variables
 load_dotenv()
-
-# Create client once with global configuration
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY", ""))
-
-OPENAI_HTTP_TIMEOUT = 20          # sec (per HTTP request)
-OPENAI_OVERALL_TIMEOUT = 25       # sec (safety net around the whole call)
 
 # ---- Text utils ----
 SPLIT_RE = re.compile(r"\n\s*\n|\n{2,}|。")
@@ -34,163 +28,112 @@ def chunk(text: str, max_chars: int = 1200, overlap: int = 120) -> List[str]:
         else:
             if buf:
                 chunks.append(buf)
-            buf = p[:max_chars]
+            # if single paragraph is huge, hard-split
+            while len(p) > max_chars:
+                chunks.append(p[:max_chars])
+                p = p[max_chars-overlap:]
+            buf = p
     if buf:
         chunks.append(buf)
-    
-    # Add overlap
-    if overlap > 0 and len(chunks) > 1:
-        for i in range(1, len(chunks)):
-            prev_end = chunks[i-1][-overlap:] if len(chunks[i-1]) > overlap else chunks[i-1]
-            chunks[i] = prev_end + "\n" + chunks[i]
-    
     return chunks
 
-# ---- Async helper ----
-async def _run_in_thread(fn):
-    """Run blocking SDK calls in a thread so we can await + timeout."""
-    loop = asyncio.get_running_loop()
-    return await loop.run_in_executor(None, fn)
+# ---- Store ----
+class VectorStore:
+    def __init__(self, dim: int = 1536):
+        self.dim = dim
+        self.index = faiss.IndexFlatIP(dim)
+        self.docs: List[Dict] = []  # {text, meta}
+        self.embs = None
+
+    def add(self, embs: np.ndarray, payloads: List[Dict]):
+        if embs.dtype != np.float32:
+            embs = embs.astype(np.float32)
+        self.index.add(embs)
+        self.docs.extend(payloads)
+        self.embs = embs if self.embs is None else np.vstack([self.embs, embs])
+
+    def search(self, q_emb: np.ndarray, k: int) -> List[Dict]:
+        if q_emb.dtype != np.float32:
+            q_emb = q_emb.astype(np.float32)
+        D, I = self.index.search(q_emb, k)
+        results = []
+        for idx in I[0]:
+            if idx == -1: continue
+            results.append(self.docs[idx])
+        return results
 
 # ---- Embeddings ----
-async def embed_texts(texts: List[str]) -> np.ndarray:
-    try:
-        resp = await asyncio.wait_for(
-            _run_in_thread(lambda: client.embeddings.create(
-                model=settings.embed_model,
-                input=texts,
-                timeout=OPENAI_HTTP_TIMEOUT,   # SDK-level timeout
-            )),
-            timeout=OPENAI_OVERALL_TIMEOUT,     # coroutine safety net
-        )
-    except (APIConnectionError, RateLimitError) as e:
-        raise RuntimeError(f"OpenAI embeddings error: {e}") from e
-    except asyncio.TimeoutError:
-        raise RuntimeError("OpenAI embeddings timed out")
-    except Exception as e:
-        raise RuntimeError(f"Embeddings failed: {e}") from e
+def get_openai_client():
+    api_key = settings.openai_api_key
+    if not api_key or api_key.strip() == "":
+        raise ValueError("OpenAI API key is empty or not set")
+    return OpenAI(api_key=api_key)
 
+async def embed_texts(texts: List[str]) -> np.ndarray:
+    # OpenAI batch embedding
+    client = get_openai_client()
+    resp = client.embeddings.create(model=settings.embed_model, input=texts)
     vecs = np.array([d.embedding for d in resp.data], dtype=np.float32)
+    # Normalize for IP = cosine
     faiss.normalize_L2(vecs)
     return vecs
 
-async def chat_with_openai(messages: List[dict]) -> dict:
-    try:
-        resp = await asyncio.wait_for(
-            _run_in_thread(lambda: client.chat.completions.create(
-                model=settings.chat_model,
-                messages=messages,
-                temperature=0.3,
-                timeout=OPENAI_HTTP_TIMEOUT,   # SDK-level timeout
-            )),
-            timeout=OPENAI_OVERALL_TIMEOUT,     # coroutine safety net
-        )
-        return {"ok": True, "text": resp.choices[0].message.content}
-    except (APIConnectionError, RateLimitError) as e:
-        return {"ok": False, "error": f"OpenAI error: {e}"}
-    except asyncio.TimeoutError:
-        return {"ok": False, "error": "OpenAI timed out"}
-    except Exception as e:
-        return {"ok": False, "error": f"Server error: {e}"}
-
-# ---- FAISS Vector Store ----
-class VectorStore:
-    def __init__(self, dim: int = 1536):
-        self.index = faiss.IndexFlatIP(dim)
-        self.docs = []
-
-    def add(self, vecs: np.ndarray, docs: List[Dict]):
-        self.index.add(vecs)
-        self.docs.extend(docs)
-
-    def search(self, query_vec: np.ndarray, k: int = 5) -> List[Dict]:
-        if self.index.ntotal == 0:
-            return []
-        scores, indices = self.index.search(query_vec, min(k, self.index.ntotal))
-        results = []
-        for score, idx in zip(scores[0], indices[0]):
-            if idx >= 0 and idx < len(self.docs):
-                doc = self.docs[idx].copy()
-                doc["score"] = float(score)
-                results.append(doc)
-        return results
-
-# ---- Corpus Loading ----
+# ---- Corpus Loader ----
 async def load_corpus(data_dir: str) -> Tuple[VectorStore, Dict]:
-    vs = VectorStore()
-    sitemap = {}
-    
-    if not os.path.exists(data_dir):
-        print(f"Warning: {data_dir} not found")
-        return vs, sitemap
-    
-    all_chunks, all_docs = [], []
-    
-    for fname in os.listdir(data_dir):
-        if not fname.endswith(('.txt', '.md')):
-            continue
-        
-        path = os.path.join(data_dir, fname)
-        try:
-            with open(path, 'r', encoding='utf-8') as f:
-                content = f.read().strip()
-            
-            if not content:
-                continue
-            
-            chunks = chunk(content)
-            for i, chunk_text in enumerate(chunks):
-                all_chunks.append(chunk_text)
-                all_docs.append({
-                    "text": chunk_text,
-                    "meta": {"source": fname, "chunk": i}
-                })
-            
-            sitemap[fname] = {"chunks": len(chunks), "preview": content[:200]}
-        
-        except Exception as e:
-            print(f"Error loading {fname}: {e}")
-    
-    if all_chunks:
-        try:
-            vecs = await embed_texts(all_chunks)
-            vs.add(vecs, all_docs)
-        except Exception as e:
-            print(f"Error embedding chunks: {e}")
-    
+    vs = VectorStore(dim=1536)
+
+    def load_file(path: str) -> str:
+        if not os.path.exists(path):
+            return ""
+        with open(path, "r", encoding="utf-8") as f:
+            return f.read()
+
+    cv_txt = load_file(os.path.join(data_dir, "cv.md"))
+    faq_txt = load_file(os.path.join(data_dir, "site_faqs.md"))
+    sitemap_json = load_file(os.path.join(data_dir, "sitemap.json"))
+    try:
+        sitemap = json.loads(sitemap_json) if sitemap_json else {"routes": [], "ctas": []}
+    except Exception:
+        sitemap = {"routes": [], "ctas": []}
+
+    docs = []
+    for src_name, txt in [("cv", cv_txt), ("faq", faq_txt)]:
+        for i, ch in enumerate(chunk(txt)):
+            docs.append({"text": ch, "meta": {"source": src_name, "chunk": i}})
+
+    if docs:
+        embs = await embed_texts([d["text"] for d in docs])
+        vs.add(embs, docs)
+
     return vs, sitemap
 
-# ---- RAG System Prompt ----
-SITE_GUIDE_SYSTEM = """You are Sympatico, an AI assistant for Conor Corcoran's professional portfolio website. 
-You help visitors learn about Conor's experience, skills, and projects.
-
-Key guidelines:
-- Be helpful, professional, and engaging
-- Use the provided context when relevant
-- If information isn't in the context, be clear about general knowledge vs. specific portfolio info
-- Keep responses focused and concise
-- Encourage exploration of the portfolio"""
+# ---- Prompting ----
+SITE_GUIDE_SYSTEM = (
+    "You are Sympatico, Conor Corcoran's AI assistant and site guide. "
+    "You help visitors navigate his portfolio, answer questions about his professional background, "
+    "and guide them to relevant sections or actions. You have access to his CV, site content, and navigation map. "
+    "Be conversational, helpful, and concise. When you don't know something from the provided context, "
+    "say so clearly and suggest relevant next steps or contacts. Include up to 3 relevant links when helpful."
+)
 
 def build_rag_context(query: str, hits: List[Dict], sitemap: Dict) -> str:
-    if not hits:
-        return "No specific portfolio information found for this query."
-    
-    ctx = f"Retrieved information relevant to: {query}\n\n"
-    for hit in hits[:3]:  # Top 3 results
-        source = hit["meta"]["source"]
-        text = hit["text"][:500]  # Truncate for context
-        ctx += f"From {source}:\n{text}\n\n"
-    
+    """Compose a compact RAG context + route/CTA map."""
+    top = []
+    for h in hits[:5]:
+        src = h["meta"].get("source")
+        top.append(f"[source: {src}]\n{h['text']}")
+    routes = "\n".join([f"- {r.get('title')}: {r.get('url')}" for r in sitemap.get("routes", [])[:6]])
+    ctas = "\n".join([f"- {c.get('label')}: {c.get('url')}" for c in sitemap.get("ctas", [])[:4]])
+    ctx = (
+        f"# Retrieved Context (cite briefly):\n\n" + "\n\n".join(top) +
+        f"\n\n# Site Routes:\n{routes}\n\n# CTAs:\n{ctas}"
+    )
     return ctx
 
 async def answer_with_rag(vs: VectorStore, sitemap: Dict, query: str, session_history: List[Dict]) -> Dict:
     # Embed query
-    try:
-        q_vec = await embed_texts([query])
-        hits = vs.search(q_vec, settings.top_k) if vs.index.ntotal > 0 else []
-    except Exception as e:
-        return {"answer": f"Sorry—Embeddings error: {e}. Please try again.", "citations": []}
-    
+    q_vec = await embed_texts([query])
+    hits = vs.search(q_vec, settings.top_k) if vs.index.ntotal > 0 else []
     context = build_rag_context(query, hits, sitemap)
 
     # Include tiny history for continuity (last 3 turns)
@@ -205,14 +148,10 @@ async def answer_with_rag(vs: VectorStore, sitemap: Dict, query: str, session_hi
         )}
     ]
 
-    # Use the robust chat function
-    resp = await chat_with_openai(messages)
-    if not resp["ok"]:
-        # propagate a clear error up to FastAPI so the widget can show it
-        return {"answer": f"Sorry—{resp['error']}. Please try again.", "citations": []}
+    client = get_openai_client()
+    resp = client.chat.completions.create(model=settings.chat_model, messages=messages, temperature=0.3)
+    text = resp.choices[0].message.content
 
-    text = resp["text"]
-    
     # Build lightweight citations list
     citations = [{"source": h["meta"]["source"], "chunk": h["meta"]["chunk"]} for h in hits[:3]]
     return {"answer": text, "citations": citations}

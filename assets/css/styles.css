@@ -10,14 +10,25 @@
   --light-text: #64748B;
 }
 
+* {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', sans-serif;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
 }
 
 .gradient-text {
   background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .skill-tag {
@@ -27,6 +38,14 @@ body {
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.skill-tag:hover {
+  background: linear-gradient(120deg, var(--primary-blue), var(--primary-green));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .certification-item {
@@ -34,4 +53,162 @@ body {
   padding-left: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.certification-item:hover {
+  border-left-color: var(--primary-blue);
+  transform: translateX(5px);
+}
+
+/* Enhanced Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+  animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+  animation: fadeInRight 0.8s ease-out forwards;
+}
+
+.pulse-on-hover:hover {
+  animation: pulse 1s infinite;
+}
+
+/* Typewriter effect */
+.typewriter {
+  border-right: 2px solid var(--primary-green);
+  animation: blink 1s infinite;
+  min-height: 1.2em;
+  display: inline-block;
+}
+
+@keyframes blink {
+  0%, 50% { border-color: var(--primary-green); }
+  51%, 100% { border-color: transparent; }
+}
+
+/* Enhanced card effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Gradient background effects */
+.gradient-bg {
+  background: linear-gradient(135deg, 
+    rgba(107, 169, 89, 0.1) 0%, 
+    rgba(113, 201, 239, 0.1) 100%);
+}
+
+/* Enhanced button styles */
+.btn-primary {
+  background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+  background: linear-gradient(120deg, var(--primary-blue), var(--primary-green));
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .text-5xl {
+    font-size: 2.5rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Loading state */
+.loading {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Scroll indicator */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+  z-index: 1000;
+  transition: width 0.3s ease;
+}
+
+/* Enhanced form styles */
+input, textarea {
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: var(--primary-green);
+  border-color: var(--primary-green);
 }

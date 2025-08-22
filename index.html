@@ -4,13 +4,53 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Conor Corcoran – AI Strategy & Sales Leadership</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Senior Sales & Operations Leader with €30M P&L experience. AI strategy consultant specializing in CRM automation, cross-border logistics, and digital transformation in Paris.">
+  <meta name="author" content="Conor Corcoran">
+  <link rel="canonical" href="https://conorcorcoran.dev">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#71C9EF">
+  
+  <!-- Preconnect for Performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Conor Corcoran – AI Strategy & Sales Leadership">
+  <meta property="og:description" content="Senior Sales & Operations Leader with €30M P&L experience. AI strategy consultant specializing in CRM automation and digital transformation.">
+  <meta property="og:image" content="https://conorcorcoran.dev/assets/images/conor-c-pic.png">
+  <meta property="og:url" content="https://conorcorcoran.dev">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Conor Corcoran – AI Strategy & Sales Leadership">
+  <meta name="twitter:description" content="Senior Sales & Operations Leader with €30M P&L experience. AI strategy consultant specializing in CRM automation and digital transformation.">
+  <meta name="twitter:image" content="https://conorcorcoran.dev/assets/images/conor-c-pic.png">
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Conor Corcoran",
+    "jobTitle":"AI Strategy & Sales Leader",
+    "email":"mailto:conorc33@gmail.com",
+    "telephone":"+33662048509",
+    "url":"https://conorcorcoran.dev",
+    "image":"https://conorcorcoran.dev/assets/images/conor-c-pic.png",
+    "address":{"@type":"PostalAddress","addressLocality":"Paris","addressCountry":"FR"},
+    "alumniOf":[{"@type":"CollegeOrUniversity","name":"Trinity College Dublin"}],
+    "sameAs":["https://www.linkedin.com/in/your-profile","https://github.com/your-profile"]
+  }
+  </script>
+  
+  <!-- Fonts (consolidated) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
   <!-- Use standard Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --primary-green: #6BA959;
@@ -20,7 +60,6 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
     }
     h1, h2, h3 {
       font-family: 'Poppins', sans-serif;
@@ -28,8 +67,16 @@
     .gradient-text {
       background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .btn-primary{
+      background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+      color:#fff;border:none;border-radius:.75rem;
+      padding:.75rem 1rem;font-weight:600;box-shadow:0 8px 20px rgba(0,0,0,.08);
+    }
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-primary:focus{outline:2px solid #1E293B;outline-offset:2px}
     .skill-tag {
       background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
       color: white;
@@ -91,397 +138,1053 @@
     .fade-in-up {
       animation: fadeInUp 1s ease-in-out;
     }
-    
-    .timeline-item {
-      position: relative;
-      padding-left: 2rem;
-      margin-bottom: 2.5rem;
-    }
-    
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 6px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary-green), var(--primary-blue));
-      border-radius: 3px;
-    }
-    
-    .timeline-item::after {
-      content: "";
-      position: absolute;
-      left: -7px;
-      top: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
+
+    /* Language Toggle Styles */
+    .lang-btn.active {
       background: linear-gradient(120deg, var(--primary-green), var(--primary-blue));
+      color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .lang-btn:not(.active):hover {
+      background: rgba(107, 169, 89, 0.1);
+      color: var(--primary-green);
+    }
+
+    /* Hide inactive language content */
+    [data-lang]:not([data-lang="en"]) {
+      display: none;
+    }
+
+    body.french [data-lang="en"] {
+      display: none;
+    }
+
+    body.french [data-lang="fr"] {
+      display: block;
+    }
+
+    body:not(.french) [data-lang="fr"] {
+      display: none;
+    }
+
+    body:not(.french) [data-lang="en"] {
+      display: block;
     }
   </style>
 </head>
-<body class="bg-gray-50">
-  <div id="top" class="container mx-auto px-4 max-w-6xl">
-    <div class="flex justify-end py-4">
-      <a href="index-fr.html" class="bg-white rounded-full px-4 py-2 shadow flex items-center gap-2 text-sm hover:shadow-md transition-all">
-        <span class="text-gray-700">Switch to French</span>
-        <span class="w-6 h-4 rounded-sm overflow-hidden shadow-sm">
-          <img src="https://flagcdn.com/w40/fr.png" alt="French Flag" class="w-full h-full object-cover" />
-        </span>
-      </a>
+<body>
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <div class="font-bold text-xl gradient-text">Conor Corcoran</div>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#journey" class="text-gray-700 hover:text-green-600 transition-colors" data-en="About" data-fr="À Propos">About</a>
+          <a href="#portfolio" class="text-gray-700 hover:text-green-600 transition-colors" data-en="Portfolio" data-fr="Portfolio">Portfolio</a>
+          <a href="#experience" class="text-gray-700 hover:text-green-600 transition-colors" data-en="Experience" data-fr="Expérience">Experience</a>
+          <a href="#contact" class="text-gray-700 hover:text-green-600 transition-colors" data-en="Contact" data-fr="Contact">Contact</a>
+          <!-- Language Toggle -->
+          <div class="flex items-center bg-gray-100 rounded-full p-1">
+            <button id="lang-en" class="lang-btn active px-3 py-1 rounded-full text-sm font-medium transition-all bg-white text-gray-700 shadow-sm">EN</button>
+            <button id="lang-fr" class="lang-btn px-3 py-1 rounded-full text-sm font-medium transition-all text-gray-500">FR</button>
+          </div>
+        </div>
+        <button class="md:hidden" id="mobile-menu-btn">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
     </div>
-    
-    <header class="py-16 bg-gradient-to-r from-green-600/10 to-blue-500/10 rounded-lg mb-16">
-      <div class="flex flex-col md:flex-row items-center md:space-x-12">
-        <div class="w-full md:w-1/3 mb-8 md:mb-0">
-          <div class="relative">
-            <img
-              src="assets/images/conor c pic.png"
-              alt="Conor Corcoran"
-              loading="lazy"
-              class="rounded-2xl shadow-2xl border-4 border-white transform transition-all hover:scale-105"
-            />
-            <div class="absolute bottom-0 right-0 bg-green-500 text-white px-3 py-1 rounded-tl-lg text-sm">
-              Open to Work
-            </div>
-          </div>
-        </div>
-        <div class="w-full md:w-2/3 space-y-4">
-          <div>
-            <h1 class="text-5xl font-bold mb-2 gradient-text">Conor Corcoran</h1>
-            <p class="text-2xl text-gray-600">Senior Sales & AI Strategy Leader</p>
-          </div>
+  </nav>
 
-          <div class="flex flex-wrap items-center gap-4">
-            <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-              </svg>
-              <span class="text-xs">Paris, France</span>
-            </div>
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden hidden px-4 pb-3 space-y-2 bg-white/95 border-b">
+    <a href="#journey" class="block py-2 text-gray-700 hover:text-green-600" data-lang="en">About</a>
+    <a href="#journey" class="block py-2 text-gray-700 hover:text-green-600" data-lang="fr">À Propos</a>
+    <a href="#portfolio" class="block py-2 text-gray-700 hover:text-green-600" data-lang="en">Portfolio</a>
+    <a href="#portfolio" class="block py-2 text-gray-700 hover:text-green-600" data-lang="fr">Portfolio</a>
+    <a href="#experience" class="block py-2 text-gray-700 hover:text-green-600" data-lang="en">Experience</a>
+    <a href="#experience" class="block py-2 text-gray-700 hover:text-green-600" data-lang="fr">Expérience</a>
+    <a href="#contact" class="block py-2 text-gray-700 hover:text-green-600" data-lang="en">Contact</a>
+    <a href="#contact" class="block py-2 text-gray-700 hover:text-green-600" data-lang="fr">Contact</a>
+  </div>
 
-            <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-              <span class="text-xs">+33 6 62 04 85 09</span>
-            </div>
-
-            <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-              </svg>
-              <span class="text-xs">conorc33@gmail.com</span>
-            </div>
-          </div>
-
-          <div class="mt-6 space-y-1">
-            <h3 class="text-lg font-semibold text-gray-700">Education</h3>
-            <p class="text-sm text-gray-600">BSc Management – Trinity College Dublin (1996 – 2000)</p>
-            <p class="text-sm text-gray-600">Diploma in Marketing – Dublin Institute of Technology (2001)</p>
-          </div>
-
-          <div class="mt-4 space-y-1">
-            <h3 class="text-lg font-semibold text-gray-700">Languages</h3>
-            <p class="text-sm text-gray-600">English – Native</p>
-            <p class="text-sm text-gray-600">French – Bilingual</p>
-          </div>
+  <div class="container mx-auto px-4 py-8">
+<header class="py-16 bg-gradient-to-r from-green-600/10 to-blue-500/10 rounded-lg mb-16">
+  <div class="flex flex-col md:flex-row items-center md:space-x-12">
+    <div class="w-full md:w-1/3 mb-8 md:mb-0">
+      <div class="relative">
+        <img
+          src="assets/images/conor-c-pic.png"
+          alt="Headshot of Conor Corcoran, AI Strategy & Sales Leader"
+          width="400"
+          height="400"
+          decoding="async"
+          class="rounded-2xl shadow-2xl border-4 border-white transform transition-all hover:scale-105"
+        />
+        <div class="absolute bottom-0 right-0 bg-green-500 text-white px-3 py-1 rounded-tl-lg text-sm">
+          Open to Work
         </div>
       </div>
-    </header>
-    
-    <!-- Summary -->
-    <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Career Summary</h2>
-      <p class="text-lg mb-4 text-gray-700">
-        Over the past two decades, I've built and scaled an international beverage business by combining strategic insight, operational rigor, and emerging technology.
-      </p>
+    </div>
+    <div class="w-full md:w-2/3 space-y-4">
+      <div>
+        <h1 class="text-5xl font-bold mb-2 gradient-text">Conor Corcoran</h1>
+        <p class="text-2xl text-gray-600">
+          <span data-lang="en">Global Sales & Operations Executive – €30M+ P&L | Bonded Warehousing & Cross-Border Supply Chains | ERP/CRM Transformation | Team Leadership Across 8 Markets</span>
+          <span data-lang="fr">Directeur Commercial & Opérations Mondial – 30M€+ P&L | Entrepôts Sous Douane & Chaînes Approvisionnement Transfrontalières | Transformation ERP/CRM | Leadership Équipes 8 Marchés</span>
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+          </svg>
+          <span class="text-xs">Paris, France</span>
+        </div>
+
+        <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+          </svg>
+          <span class="text-xs">+33 6 62 04 85 09</span>
+        </div>
+
+        <div class="flex items-center space-x-2 bg-white shadow-md px-3 py-1 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-red-600" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+          </svg>
+          <span class="text-xs">conorc33@gmail.com</span>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <h3 class="text-lg font-semibold text-gray-700" data-lang="en">Citizenship & Mobility</h3>
+        <h3 class="text-lg font-semibold text-gray-700" data-lang="fr">Citoyenneté & Mobilité</h3>
+        <p class="text-sm text-gray-600" data-lang="en">Irish National (EU) – Fully mobile across Europe</p>
+        <p class="text-sm text-gray-600" data-lang="fr">Citoyen Irlandais (UE) – Mobilité complète en Europe</p>
+      </div>
+
+      <div class="mt-4">
+        <h3 class="text-lg font-semibold text-gray-700" data-lang="en">Languages</h3>
+        <h3 class="text-lg font-semibold text-gray-700" data-lang="fr">Langues</h3>
+        <div data-lang="en">
+          <p class="text-sm text-gray-600">English – Native</p>
+          <p class="text-sm text-gray-600">French – Professional Proficiency</p>
+          <p class="text-sm text-gray-600">Irish – Professional</p>
+        </div>
+        <div data-lang="fr">
+          <p class="text-sm text-gray-600">Anglais – Langue maternelle</p>
+          <p class="text-sm text-gray-600">Français – Niveau professionnel</p>
+          <p class="text-sm text-gray-600">Irlandais – Niveau professionnel</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+    <!-- Professional Journey -->
+    <section id="journey" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="en">Executive Profile</h2>
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="fr">Profil Exécutif</h2>
+      
+      <div class="bg-gradient-to-r from-green-50 to-blue-50 p-6 rounded-lg mb-6">
+        <div data-lang="en">
+          <p class="text-lg mb-4 font-semibold text-gray-800">
+            Sales and Commercial Director with 17+ years of experience leading strategic growth, client partnerships, and international expansion across FMCG, retail, and B2B sectors.
+          </p>
+          <p class="text-lg mb-4">
+            Co-founded and scaled Direct Distribution from €45K seed capital to €2.4M turnover (€30M cumulative turnover), launching 40+ brands across 6 countries.
+          </p>
+          <p class="text-lg mb-4">
+            Deep expertise in contract negotiation (MSAs), import/export operations, bonded warehousing, and full-stack commercial management — including CRM design, logistics, route-to-market execution, and P&L ownership.
+          </p>
+          <p class="text-lg">
+            Currently building Hi.AI Design — a consultancy helping scale-ups deploy sales agent networks and modernize go-to-market systems.
+          </p>
+        </div>
+        
+        <div data-lang="fr">
+          <p class="text-lg mb-4 font-semibold text-gray-800">
+            Directeur Commercial avec 17+ années d'expérience dans la croissance stratégique, les partenariats clients et l'expansion internationale dans les secteurs FMCG, retail et B2B.
+          </p>
+          <p class="text-lg mb-4">
+            Co-fondateur et développeur de Direct Distribution de 45K€ de capital initial à 2,4M€ de chiffre d'affaires (30M€ cumulés), lançant 40+ marques dans 6 pays.
+          </p>
+          <p class="text-lg mb-4">
+            Expertise approfondie en négociation de contrats (MSAs), opérations import/export, entrepôts sous douane, et gestion commerciale complète — incluant conception CRM, logistique, stratégies go-to-market et gestion P&L.
+          </p>
+          <p class="text-lg">
+            Actuellement en train de construire Hi.AI Design — un cabinet de conseil aidant les scale-ups à déployer des réseaux d'agents commerciaux et moderniser leurs systèmes go-to-market.
+          </p>
+        </div>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800" data-lang="en">Key Achievements</h3>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800" data-lang="fr">Réalisations Clés</h3>
+          
+          <ul class="space-y-2 text-gray-700" data-lang="en">
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>€30M+ revenue generated from €45K startup capital</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>Built and led 22-person cross-functional teams</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>40+ successful brand launches; 65% market share in key categories</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>Negotiated national MSAs with major retailers</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>Reduced operating costs by 15% through route optimization</span>
+            </li>
+          </ul>
+          
+          <ul class="space-y-2 text-gray-700" data-lang="fr">
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>30M€+ de revenus générés à partir de 45K€ de capital initial</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>Construit et dirigé des équipes pluridisciplinaires de 22 personnes</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>40+ lancements de marques réussis; 65% de part de marché dans les catégories clés</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>Négocié des MSAs nationaux avec les grands distributeurs</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-green-600 mr-2">✓</span>
+              <span>Réduit les coûts opérationnels de 15% grâce à l'optimisation des routes</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800" data-lang="en">International Experience</h3>
+          <h3 class="text-xl font-semibold mb-4 text-gray-800" data-lang="fr">Expérience Internationale</h3>
+          
+          <div class="space-y-2 text-gray-700" data-lang="en">
+            <p><strong>Citizenship:</strong> Irish National (EU) – Fully mobile across Europe</p>
+            <p><strong>Languages:</strong></p>
+            <ul class="pl-4 space-y-1">
+              <li>• English (Native)</li>
+              <li>• French (Professional Proficiency)</li>
+              <li>• Irish (Professional)</li>
+            </ul>
+            <p><strong>Markets:</strong> France, Ireland, Australia, U.S., Europe</p>
+          </div>
+          
+          <div class="space-y-2 text-gray-700" data-lang="fr">
+            <p><strong>Citoyenneté:</strong> Irlandais (UE) – Mobilité complète en Europe</p>
+            <p><strong>Langues:</strong></p>
+            <ul class="pl-4 space-y-1">
+              <li>• Anglais (Langue maternelle)</li>
+              <li>• Français (Niveau professionnel)</li>
+              <li>• Irlandais (Niveau professionnel)</li>
+            </ul>
+            <p><strong>Marchés:</strong> France, Irlande, Australie, États-Unis, Europe</p>
+          </div>
+        </div>
+      </div>
     </section>
     
-    <!-- Career Timeline -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-8 gradient-text">Professional Journey</h2>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Early Consulting and Academic Foundations</h3>
-        <p class="text-gray-500 font-medium mb-2">1995 - 2000</p>
-        <p class="text-gray-700">
-          I began my career at PwC Dublin in 1995 as a junior consultant in the Import-Export practice, advising clients on computer component classification under EU regulations. In 1996, I returned to full-time studies, earning a BSc in Management from Trinity College Dublin (1996–2000) and a Diploma in Marketing from Dublin Institute of Technology (2001). During a six-month placement at EBS Building Society Ireland, I advised retail clients on mortgage and investment products, reinforcing my passion for client-focused financial solutions.
-        </p>
-      </div>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Trade Marketing in France</h3>
-        <p class="text-gray-500 font-medium mb-2">2000 - 2004</p>
-        <p class="text-gray-700">
-          In 2000, I relocated to Paris to master French and joined Brasseries Kronenbourg's trade-marketing team. There, I designed a pilot program with key retail accounts in the on-trade in France. This program increased tap visibility by 50% through localized promotions, in-store tastings, live Irish music events, and bespoke POS materials.
-        </p>
-      </div>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Australian Experience</h3>
-        <p class="text-gray-500 font-medium mb-2">2004 - 2005</p>
-        <p class="text-gray-700">
-          In Melbourne, I managed a number of well-known Irish pubs before traveling the country for six months. Then in 2005, I returned to France, armed with a lot of new ideas—notably screw-cap wine and its use in pubs. I observed that Australian pubs had zero wine waste thanks to screw caps and clearly labeled bottles featuring the grape varietal on the front.
-        </p>
-      </div>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Global Beverage Distribution</h3>
-        <p class="text-gray-500 font-medium mb-2">2005 - 2006</p>
-        <p class="text-gray-700">
-          Back in France, I started a role as a business developer for small to medium sized wineries to help develop their export market development across Europe, the US, and Asia. I organized focused B2B events that matched producers with qualified buyers. It was here I researched my idea of screw-cap French wine for the domestic on-trade, labeled in English. It seemed there was a gap in the market. When we launched Direct Distribution, we went on to sell more than 300,000 bottles over 10 years, with zero returns. Practical market research and data-driven product testing paid off.
-        </p>
-      </div>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Entrepreneurial Growth with Direct Distribution</h3>
-        <p class="text-gray-500 font-medium mb-2">2006 - 2020</p>
-        <p class="text-gray-700">
-          In 2006, I co-founded Direct Distribution with my partners as a platform for premium beverages and snacks. Starting with 20 products and €45,000 in seed capital, we scaled annual revenues to €2 million in less than 10 years.
-          <br><br>
-          As a founding partner, I wore many hats—covering many aspects of an MBA in a practical real world scenario. I led core strategic functions including business planning, financial forecasting, and pricing strategy. I structured supplier contracts and negotiated complex triparty investment agreements, managing legal compliance for food and alcohol regulations across France and the EU.
-          <br><br>
-          On the operational side, I oversaw warehousing strategy, supply chain efficiency, and import/export procedures. I built and scaled the internal team—leading recruitment, onboarding, and training—while designing compensation frameworks and team incentives that supported growth.
-          <br><br>
-          Brand launches were a major focus: I crafted go-to-market plans for over 30 new brands, building category narratives, managing packaging and POS development, and coordinating cross-functional marketing campaigns. I maintained direct relationships with major retail groups and HORECA distributors, ensuring retention of key accounts while landing major new clients in Paris and other major urban centers in France.
-          <br><br>
-          Ultimately, I ran the company as a fully immersive general management experience—fusing legal, HR, finance, marketing, operations, and commercial strategy into one high-growth journey that now forms the backbone of my leadership style today.
-        </p>
-        <p class="text-gray-700">
-          By 2019, we had 210 SKUs, 10 full-time staff, our own delivery fleet, 3 delivery platforms in France, and €2.4 million in turnover, with an average gross margin of 45%. We had expanded our warehouse capacity and 2020 was projected to be a €3 million year.
-        </p>        
-      </div>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Digital Transformation During COVID-19</h3>
-        <p class="text-gray-500 font-medium mb-2">2020 - 2024</p>
-        <p class="text-gray-700">
-          When the pandemic hit in March 2020, I led our pivot to a consumer-facing e-commerce platform. I oversaw the development of a custom CRM and Shopify storefront, implemented a machine-learning model that reduced inventory shortfalls by 15%, and launched marketing automation that increased email engagement by 10%.
-        </p>
-      </div>
-      
-      <div class="timeline-item">
-        <h3 class="text-2xl font-semibold text-gray-800">Transition to AI-Powered SaaS</h3>
-        <p class="text-gray-500 font-medium mb-2">2024 - Present</p>
-        <p class="text-gray-700">
-          Today, I'm leveraging my cross-industry background to drive product strategy in the AI-powered SaaS sector. With certifications in Python and machine learning—and a recent project building of AI agents for SMEs —I'm poised to blend data science with my considerable sales, marketing and cross border project management and team building.
-        </p>
-      </div>
-      
-    </section>
-      
     <!-- Core Competencies -->
     <div class="grid md:grid-cols-2 gap-8 mb-16">
       <section class="bg-white shadow-lg rounded-lg p-6">
-        <h2 class="text-2xl font-bold mb-6 gradient-text">Technical Skills</h2>
+        <h2 class="text-2xl font-bold mb-6 gradient-text" data-lang="en">Core Expertise</h2>
+        <h2 class="text-2xl font-bold mb-6 gradient-text" data-lang="fr">Expertise Centrale</h2>
         <div class="space-y-4">
           <div>
-            <h3 class="font-semibold mb-2">Languages & Frameworks</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="en">Strategic Sales Leadership & Market Growth</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="fr">Leadership Commercial Stratégique & Croissance Marché</h3>
+            <p class="text-sm text-gray-600 mb-3" data-lang="en">Delivering revenue acceleration, market share expansion, and long-term client partnerships.</p>
+            <p class="text-sm text-gray-600 mb-3" data-lang="fr">Accélération revenus, expansion parts de marché, et partenariats clients long terme.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Python</span>
-              <span class="skill-tag">FastAPI</span>
-              <span class="skill-tag">JavaScript</span>
-              <span class="skill-tag">TypeScript</span>
-              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag" data-lang="en">Revenue Acceleration</span>
+              <span class="skill-tag" data-lang="fr">Accélération Revenus</span>
+              <span class="skill-tag" data-lang="en">Market Share Growth</span>
+              <span class="skill-tag" data-lang="fr">Croissance Parts Marché</span>
+              <span class="skill-tag" data-lang="en">Client Partnerships</span>
+              <span class="skill-tag" data-lang="fr">Partenariats Clients</span>
             </div>
           </div>
+          
           <div>
-            <h3 class="font-semibold mb-2">AI & Tools</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="en">Global Key Account Acquisition & Development</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="fr">Acquisition & Développement Grands Comptes Mondiaux</h3>
+            <p class="text-sm text-gray-600 mb-3" data-lang="en">Winning, scaling, and retaining top-tier clients across competitive international markets.</p>
+            <p class="text-sm text-gray-600 mb-3" data-lang="fr">Conquête, montée en gamme et rétention clients premium sur marchés internationaux compétitifs.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">OpenAI</span>
-              <span class="skill-tag">RAG Systems</span>
-              <span class="skill-tag">FAISS Vector Store</span>
-              <span class="skill-tag">IBM Watson</span>
-              <span class="skill-tag">CRM Systems</span>
-              <span class="skill-tag">Mailchimp</span>
+              <span class="skill-tag" data-lang="en">Key Account Management</span>
+              <span class="skill-tag" data-lang="fr">Gestion Grands Comptes</span>
+              <span class="skill-tag" data-lang="en">Client Retention</span>
+              <span class="skill-tag" data-lang="fr">Rétention Clients</span>
+              <span class="skill-tag" data-lang="en">International Markets</span>
+              <span class="skill-tag" data-lang="fr">Marchés Internationaux</span>
             </div>
           </div>
+          
           <div>
-            <h3 class="font-semibold mb-2">DevOps</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="en">International GTM Strategy & Multi-Country Scale-Up</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="fr">Stratégie GTM Internationale & Scale-Up Multi-Pays</h3>
+            <p class="text-sm text-gray-600 mb-3" data-lang="en">Designing and executing go-to-market strategies across Europe, leveraging deep FMCG and SaaS expertise.</p>
+            <p class="text-sm text-gray-600 mb-3" data-lang="fr">Conception et exécution stratégies go-to-market Europe, s'appuyant sur expertise FMCG et SaaS.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Docker</span>
-              <span class="skill-tag">CI/CD</span>
-              <span class="skill-tag">GitHub Actions</span>
+              <span class="skill-tag" data-lang="en">GTM Strategy</span>
+              <span class="skill-tag" data-lang="fr">Stratégie GTM</span>
+              <span class="skill-tag">FMCG</span>
+              <span class="skill-tag">SaaS</span>
+              <span class="skill-tag" data-lang="en">European Markets</span>
+              <span class="skill-tag" data-lang="fr">Marchés Européens</span>
             </div>
           </div>
         </div>
       </section>
       
       <section class="bg-white shadow-lg rounded-lg p-6">
-        <h2 class="text-2xl font-bold mb-6 gradient-text">Business Capabilities</h2>
+        <h2 class="text-2xl font-bold mb-6 gradient-text" data-lang="en">Operational Excellence</h2>
+        <h2 class="text-2xl font-bold mb-6 gradient-text" data-lang="fr">Excellence Opérationnelle</h2>
         <div class="space-y-4">
           <div>
-            <h3 class="font-semibold mb-2">Sales Strategy</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="en">FMCG & Brand Creation, Launch & Acceleration</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="fr">FMCG & Création, Lancement & Accélération Marques</h3>
+            <p class="text-sm text-gray-600 mb-3" data-lang="en">From product development to distribution, building sustainable consumer brands.</p>
+            <p class="text-sm text-gray-600 mb-3" data-lang="fr">Du développement produit à la distribution, construction marques consommateur durables.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">B2B Sales</span>
-              <span class="skill-tag">Enterprise Sales</span>
-              <span class="skill-tag">CRM Management</span>
+              <span class="skill-tag" data-lang="en">Brand Development</span>
+              <span class="skill-tag" data-lang="fr">Développement Marques</span>
+              <span class="skill-tag" data-lang="en">Product Launch</span>
+              <span class="skill-tag" data-lang="fr">Lancement Produits</span>
+              <span class="skill-tag" data-lang="en">Consumer Brands</span>
+              <span class="skill-tag" data-lang="fr">Marques Consommateur</span>
             </div>
           </div>
+          
           <div>
-            <h3 class="font-semibold mb-2">Leadership</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="en">Cross-Border Trade, Import/Export & Supply Chain</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="fr">Commerce Transfrontalier, Import/Export & Supply Chain</h3>
+            <p class="text-sm text-gray-600 mb-3" data-lang="en">Managing logistics, compliance, and complex European distribution networks.</p>
+            <p class="text-sm text-gray-600 mb-3" data-lang="fr">Gestion logistique, conformité, et réseaux distribution européens complexes.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Team Development</span>
-              <span class="skill-tag">Cross-Functional Management</span>
-              <span class="skill-tag">Strategic Planning</span>
+              <span class="skill-tag" data-lang="en">Supply Chain</span>
+              <span class="skill-tag" data-lang="fr">Chaîne d'Approvisionnement</span>
+              <span class="skill-tag" data-lang="en">Trade Compliance</span>
+              <span class="skill-tag" data-lang="fr">Conformité Commerciale</span>
+              <span class="skill-tag" data-lang="en">Distribution Networks</span>
+              <span class="skill-tag" data-lang="fr">Réseaux Distribution</span>
             </div>
           </div>
+          
           <div>
-            <h3 class="font-semibold mb-2">Go-To-Market</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="en">P&L Ownership, Budget Forecasting & Financial Reporting</h3>
+            <h3 class="font-semibold mb-2 text-gray-800" data-lang="fr">Responsabilité P&L, Prévisions Budget & Reporting Financier</h3>
+            <p class="text-sm text-gray-600 mb-3" data-lang="en">Full-spectrum financial oversight, cost optimisation, and board-level reporting.</p>
+            <p class="text-sm text-gray-600 mb-3" data-lang="fr">Supervision financière complète, optimisation coûts, et reporting niveau conseil.</p>
             <div class="flex flex-wrap gap-2">
-              <span class="skill-tag">Digital Campaigns</span>
-              <span class="skill-tag">Brand Launches</span>
-              <span class="skill-tag">Market Research</span>
+              <span class="skill-tag" data-lang="en">P&L Management</span>
+              <span class="skill-tag" data-lang="fr">Gestion P&L</span>
+              <span class="skill-tag" data-lang="en">Financial Forecasting</span>
+              <span class="skill-tag" data-lang="fr">Prévisions Financières</span>
+              <span class="skill-tag" data-lang="en">Board Reporting</span>
+              <span class="skill-tag" data-lang="fr">Reporting Conseil</span>
             </div>
           </div>
         </div>
       </section>
     </div>
     
-    <!-- Certifications -->
+    <!-- Professional Certifications -->
     <section class="mb-16 bg-white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Professional Certifications</h2>
+      <h2 class="text-3xl font-bold mb-6 gradient-text">Education & Certifications</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="certification-item">
-          <h3 class="text-xl font-semibold">IBM AI Developer Professional Certificate</h3>
-          <p class="text-gray-600">IBM, 2024–2025</p>
-          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-            <li>AI application development</li>
-            <li>Generative AI integration</li>
-            <li>Python, JavaScript, HTML/CSS</li>
-            <li>Sales reporting AI agent</li>
-          </ul>
+        <!-- Education -->
+        <div class="space-y-6">
+          <h3 class="text-xl font-semibold text-gray-800 border-b-2 border-green-500 pb-2">Education</h3>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">BSc in Management</h4>
+            <p class="text-gray-600">Trinity College Dublin | 1996–2000</p>
+            <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+              <li>Strategy, Finance, Operations</li>
+              <li>Organizational Behavior</li>
+              <li>Business Analysis & Strategic Planning</li>
+            </ul>
+          </div>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">Diploma in Marketing</h4>
+            <p class="text-gray-600">Dublin Institute of Technology | 1996–2000</p>
+            <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+              <li>Marketing Strategy & Implementation</li>
+              <li>Consumer Behavior & Market Research</li>
+              <li>Brand Management & Positioning</li>
+            </ul>
+          </div>
         </div>
-        <div class="certification-item">
-          <h3 class="text-xl font-semibold">Generative AI Leadership & Strategy Specialization</h3>
-          <p class="text-gray-600">Vanderbilt University, 2024</p>
-          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-            <li>AI strategy</li>
-            <li>Business transformation</li>
-            <li>Productivity acceleration</li>
-            <li>Executive AI integration</li>
-          </ul>
-        </div>
-        <div class="certification-item">
-          <h3 class="text-xl font-semibold">Data Analytics in AI</h3>
-          <p class="text-gray-600">Jedha Bootcamp, Paris, 2024</p>
-          <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
-            <li>Data processing</li>
-            <li>Visualization</li>
-            <li>AI-powered decision making</li>
-          </ul>
+        
+        <!-- Recent Certifications -->
+        <div class="space-y-6">
+          <h3 class="text-xl font-semibold text-gray-800 border-b-2 border-blue-500 pb-2">Recent Certifications</h3>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">IBM AI Developer Certification</h4>
+            <p class="text-gray-600">IBM | 2024–2025</p>
+            <ul class="text-sm text-gray-700 list-disc pl-5 mt-2 space-y-1">
+              <li>AI application development</li>
+              <li>Generative AI integration</li>
+              <li>Python, JavaScript, HTML/CSS</li>
+            </ul>
+          </div>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">Generative AI & Prompt Engineering</h4>
+            <p class="text-gray-600">Vanderbilt University | 2024</p>
+          </div>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">Data Analytics & AI</h4>
+            <p class="text-gray-600">Jedha Bootcamp, Paris | 2024</p>
+          </div>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">Blockchain in Financial Services</h4>
+            <p class="text-gray-600">INSEAD | 2025</p>
+          </div>
+          <div class="certification-item">
+            <h4 class="text-lg font-semibold">ISO 9001 Quality Management</h4>
+            <p class="text-gray-600">Certified Professional</p>
+          </div>
         </div>
       </div>
     </section>
     
     <!-- Portfolio -->
-    <section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Notable Projects</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Sympatico AI Chat Assistant -->
-        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-          <div class="h-48 bg-gradient-to-r from-green-500/30 to-blue-500/30 flex items-center justify-center">
-            <img src="assets/images/sympatico-ai-chat-logo.svg" alt="Sympatico AI" class="w-24 h-24" />
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Sympatico AI Chat Assistant</h3>
-            <p class="text-gray-600 text-sm">
-              Interactive AI assistant powered by RAG technology that can answer questions about my experience and qualifications. Try the chat widget in the bottom-right corner!
-            </p>
-          </div>
+
+<section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+  <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="en">🚀 Hi.AI Design – Agent Portfolio</h2>
+  <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="fr">🚀 Hi.AI Design – Portfolio Agents</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- CRM Voice Agent -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition group">
+      <div class="w-full h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 14c1.66 0 2.99-1.34 2.99-3L15 5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm5.3-3c0 3-2.54 5.1-5.3 5.1S6.7 14 6.7 11H5c0 3.41 2.72 6.23 6 6.72V21h2v-3.28c3.28-.48 6-3.3 6-6.72h-1.7z"/>
+        </svg>
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2" data-lang="en">CRM Voice Agent</h3>
+        <h3 class="text-xl font-semibold mb-2" data-lang="fr">Agent Vocal CRM</h3>
+        <p class="text-gray-600 text-sm mb-4" data-lang="en">
+          AI-powered sales assistant that lets reps log calls, deals, and updates by voice. Automatically structures input and pushes to CRM, cutting admin time.
+        </p>
+        <p class="text-gray-600 text-sm mb-4" data-lang="fr">
+          Assistant commercial IA permettant de saisir appels, contrats et mises à jour par voix. Structure automatiquement et intègre au CRM, réduisant tâches admin.
+        </p>
+        <div class="flex gap-2 mb-3">
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Flask</span>
+          <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Whisper</span>
+          <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">React</span>
+          <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">PostgreSQL</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="en">
+            Demo
+          </button>
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="fr">
+            Démo
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sympatico Agent -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition group">
+      <div class="w-full h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+        </svg>
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2" data-lang="en">Sympatico Agent</h3>
+        <h3 class="text-xl font-semibold mb-2" data-lang="fr">Agent Sympatico</h3>
+        <p class="text-gray-600 text-sm mb-4" data-lang="en">
+          RAG-powered site guide combining CV knowledge, site content, and navigation assistance. Embeddable widget with FAISS vector search, session memory, and smart routing to CTAs.
+        </p>
+        <p class="text-gray-600 text-sm mb-4" data-lang="fr">
+          Guide site RAG combinant connaissance CV, contenu site et assistance navigation. Widget intégrable avec recherche vectorielle FAISS, mémoire session et routage intelligent vers CTAs.
+        </p>
+        <div class="flex gap-2 mb-3">
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">FastAPI</span>
+          <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">FAISS</span>
+          <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">OpenAI</span>
+          <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">RAG</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="en">
+            Explore
+          </button>
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="fr">
+            Explorer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Job Application Agent -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition group">
+      <div class="w-full h-48 bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 6h-2.5l-1.5-1.5h-5L9.5 6H7c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h13c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM14 17h-4v-1h4v1zm3-3H7v-1h10v1zm0-2H7v-1h10v1z"/>
+        </svg>
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2" data-lang="en">Job Application Agent</h3>
+        <h3 class="text-xl font-semibold mb-2" data-lang="fr">Agent Candidature Emploi</h3>
+        <p class="text-gray-600 text-sm mb-4" data-lang="en">
+          Fetches jobs from Gmail alerts, scores with ATS-style matching, enables one-click applications. Real-time job description grading against CVs.
+        </p>
+        <p class="text-gray-600 text-sm mb-4" data-lang="fr">
+          Récupère offres d'emploi depuis alertes Gmail, évalue avec matching ATS, permet candidatures en un clic. Notation temps réel offres vs CV.
+        </p>
+        <div class="flex gap-2 mb-3">
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Flask</span>
+          <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">Gmail API</span>
+          <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">React</span>
+          <span class="px-2 py-1 bg-gray-100 text-gray-800 text-xs rounded">PostgreSQL</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="en">
+            Try It
+          </button>
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="fr">
+            Essayer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CV Agent -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition group">
+      <div class="w-full h-48 bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+        </svg>
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2" data-lang="en">CV Agent</h3>
+        <h3 class="text-xl font-semibold mb-2" data-lang="fr">Agent CV</h3>
+        <p class="text-gray-600 text-sm mb-4" data-lang="en">
+          Generates ATS-optimized CVs and tailored cover letters based on job descriptions. Produces recruiter-friendly documents in seconds.
+        </p>
+        <p class="text-gray-600 text-sm mb-4" data-lang="fr">
+          Génère CV optimisés ATS et lettres motivation personnalisées selon offres. Produit documents recruteur-friendly en secondes.
+        </p>
+        <div class="flex gap-2 mb-3">
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">Python</span>
+          <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">GPT-4/5</span>
+          <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Flask</span>
+          <span class="px-2 py-1 bg-red-100 text-red-800 text-xs rounded">PDF Export</span>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="openCVAgent()" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="en">
+            Generate CV
+          </button>
+          <button onclick="openCVAgent()" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="fr">
+            Générer CV
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Startup ERP Agent -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition group">
+      <div class="w-full h-48 bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+        </svg>
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2" data-lang="en">Startup ERP Agent</h3>
+        <h3 class="text-xl font-semibold mb-2" data-lang="fr">Agent ERP Startup</h3>
+        <p class="text-gray-600 text-sm mb-4" data-lang="en">
+          AI-powered business OS for startups and SMEs. Tracks finance, cashflow, grants, payroll, URSSAF relief, chômage eligibility, with secure document vault.
+        </p>
+        <p class="text-gray-600 text-sm mb-4" data-lang="fr">
+          OS business IA pour startups et PME. Suivi finance, cashflow, subventions, paie, aide URSSAF, éligibilité chômage, avec coffre documents sécurisé.
+        </p>
+        <div class="flex gap-2 mb-3">
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">FastAPI</span>
+          <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">React</span>
+          <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Supabase</span>
+          <span class="px-2 py-1 bg-orange-100 text-orange-800 text-xs rounded">OCR</span>
+        </div>
+        <div class="flex gap-2">
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="en">
+            Learn More
+          </button>
+          <button class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="fr">
+            En Savoir Plus
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Original AI CV Assistant -->
+    <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition group">
+      <div class="w-full h-48 bg-gradient-to-br from-indigo-500 to-pink-600 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+        <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+        </svg>
+      </div>
+      <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2" data-lang="en">Interactive CV Assistant</h3>
+        <h3 class="text-xl font-semibold mb-2" data-lang="fr">Assistant CV Interactif</h3>
+        <p class="text-gray-600 text-sm mb-4" data-lang="en">
+          AI-powered agent trained to answer questions about my professional background and share contact details. Built with GPT-4, Flask, and React.
+        </p>
+        <p class="text-gray-600 text-sm mb-4" data-lang="fr">
+          Agent IA entraîné pour répondre aux questions sur mon parcours professionnel et partager coordonnées. Développé avec GPT-4, Flask et React.
+        </p>
+        <div class="flex gap-2 mb-3">
+          <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded">React</span>
+          <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded">GPT-4</span>
+          <span class="px-2 py-1 bg-purple-100 text-purple-800 text-xs rounded">Flask</span>
+        </div>
+        <div class="flex gap-2">
+          <button onclick="openCVAgent()" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="en">
+            Try Demo
+          </button>
+          <button onclick="openCVAgent()" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition" data-lang="fr">
+            Essayer Démo
+          </button>
+          <a href="https://github.com/your-username/cv-agent" target="_blank" class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition" data-lang="en">
+            View Code
+          </a>
+          <a href="https://github.com/your-username/cv-agent" target="_blank" class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition" data-lang="fr">
+            Voir Code
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Professional Experience -->
+    <section id="experience" class="mb-16 bg-white shadow-lg rounded-lg p-8 fade-in-up">
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="en">Professional Experience</h2>
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="fr">Expérience Professionnelle</h2>
+      
+      <!-- Current/Recent Position -->
+      <div class="mb-8 border-l-4 border-green-500 pl-6">
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="en">Founder & AI Strategy Consultant</h3>
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="fr">Fondateur & Consultant Stratégie IA</h3>
+        <p class="text-lg text-gray-600 mb-2" data-lang="en">Hi.AI Design | AI & Digital Transformation Consultancy</p>
+        <p class="text-lg text-gray-600 mb-2" data-lang="fr">Hi.AI Design | Conseil IA & Transformation Digitale</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="en">August 2025 – Present</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="fr">Août 2025 – Présent</p>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="en">
+          <li>Building consultancy helping scale-ups deploy sales agent networks and modernize go-to-market systems</li>
+          <li>Developing AI-powered solutions for sales and marketing automation</li>
+          <li>Consulting on digital transformation strategies for SMEs</li>
+          <li>Specializing in prompt engineering and AI agent development</li>
+        </ul>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="fr">
+          <li>Construction cabinet conseil aidant scale-ups déployer réseaux commerciaux et moderniser systèmes go-to-market</li>
+          <li>Développement solutions IA pour automatisation ventes et marketing</li>
+          <li>Conseil stratégies transformation digitale pour PME</li>
+          <li>Spécialisation prompt engineering et développement agents IA</li>
+        </ul>
+      </div>
+
+      <!-- Direct Distribution -->
+      <div class="mb-8 border-l-4 border-blue-500 pl-6">
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="en">Co-Founder & Commercial/Marketing Director</h3>
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="fr">Co-Fondateur & Directeur Commercial/Marketing</h3>
+        <p class="text-lg text-gray-600 mb-2">Direct Distribution, Paris, France</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="en">October 2006 – May 2024 (17.5 years)</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="fr">Octobre 2006 – Mai 2024 (17,5 ans)</p>
+        <p class="text-sm font-semibold text-blue-600 mb-3" data-lang="en">€30M total turnover | 14 direct staff / 8 indirect | 3 warehouses</p>
+        <p class="text-sm font-semibold text-blue-600 mb-3" data-lang="fr">30M€ CA total | 14 salariés directs / 8 indirects | 3 entrepôts</p>
+        
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-800 mb-2" data-lang="en">Entrepreneurial Growth (2006–2019):</h4>
+          <h4 class="font-semibold text-gray-800 mb-2" data-lang="fr">Croissance Entrepreneuriale (2006–2019):</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700" data-lang="en">
+            <li>Scaled from €45K seed capital to €2.4M annual turnover</li>
+            <li>Launched premium beverage and snack brands across France and Europe</li>
+            <li>Built end-to-end distribution and logistics operations</li>
+            <li>Expanded SKU portfolio from 20 to 210+</li>
+            <li>Signed national deals with Carrefour, Intermarché, Leclerc and 700+ on-trade clients</li>
+            <li>Created screw-cap wine brand selling 300,000+ bottles with zero returns</li>
+            <li>Successfully launched proprietary beer brand: 200,000+ litres sold</li>
+          </ul>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700" data-lang="fr">
+            <li>Passage de 45K€ capital initial à 2,4M€ CA annuel</li>
+            <li>Lancement marques premium boissons et snacks France et Europe</li>
+            <li>Construction opérations distribution et logistique bout-en-bout</li>
+            <li>Expansion portfolio SKU de 20 à 210+</li>
+            <li>Accords nationaux Carrefour, Intermarché, Leclerc et 700+ clients CHR</li>
+            <li>Création marque vin capsule à vis: 300 000+ bouteilles vendues zéro retour</li>
+            <li>Lancement réussi marque bière propriétaire: 200 000+ litres vendus</li>
+          </ul>
         </div>
         
-        <!-- AI CV Agent -->
-        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-          <div class="h-48 bg-gradient-to-r from-green-500/30 to-blue-500/30 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M16 16s-1.5-2-4-2-4 2-4 2"></path>
-              <line x1="9" y1="9" x2="9.01" y2="9"></line>
-              <line x1="15" y1="9" x2="15.01" y2="9"></line>
-            </svg>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">AI Sales Assistant</h3>
-            <p class="text-gray-600 text-sm">
-              Built an AI-powered assistant that helped our sales team analyze customer data and provide personalized recommendations, increasing conversion rates by 22%.
-            </p>
-          </div>
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-800 mb-2" data-lang="en">Strategic Innovation & Contract Management:</h4>
+          <h4 class="font-semibold text-gray-800 mb-2" data-lang="fr">Innovation Stratégique & Gestion Contrats:</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700" data-lang="en">
+            <li>Identified untapped on-trade wine market through global trend research</li>
+            <li>Negotiated MSA-style supply and distribution agreements with embedded SLAs</li>
+            <li>Managed legal, operational, and financial dependencies of complex contracts</li>
+            <li>Designed pricing models with tiered incentives and gain-sharing terms</li>
+          </ul>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700" data-lang="fr">
+            <li>Identifié marché vin CHR inexploité via recherche tendances mondiales</li>
+            <li>Négociation accords MSA approvisionnement et distribution avec SLA intégrés</li>
+            <li>Gestion dépendances légales, opérationnelles et financières contrats complexes</li>
+            <li>Conception modèles pricing avec incentives échelonnés et termes gain-sharing</li>
+          </ul>
         </div>
         
-        <!-- CRM + Forecasting System -->
-        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-          <div class="h-48 bg-gradient-to-r from-purple-500/30 to-pink-500/30 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-            </svg>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">Predictive Inventory System</h3>
-            <p class="text-gray-600 text-sm">
-              Designed and implemented an ML-based forecasting system that predicted seasonal demand patterns, reducing stockouts by 15% and improving cash flow.
-            </p>
-          </div>
+        <div class="mb-4">
+          <h4 class="font-semibold text-gray-800 mb-2" data-lang="en">Digital Transformation (2020–2024):</h4>
+          <h4 class="font-semibold text-gray-800 mb-2" data-lang="fr">Transformation Digitale (2020–2024):</h4>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700" data-lang="en">
+            <li>Built proprietary CRM and Shopify storefront; transitioned to hybrid digital model</li>
+            <li>Created ML-based inventory forecasting tool reducing stockouts by 8%</li>
+            <li>Optimized fleet logistics and reduced costs by 15%</li>
+            <li>Delivered business proposals to national buyers (75% success rate)</li>
+            <li>Managed key supplier accounts across 8 countries</li>
+            <li>Built CRM dashboards with Power BI for real-time sales tracking</li>
+            <li>Designed complete company rebrand with direct B2B ordering system</li>
+          </ul>
+          <ul class="list-disc pl-5 space-y-1 text-gray-700" data-lang="fr">
+            <li>Construction CRM propriétaire et vitrine Shopify; transition modèle digital hybride</li>
+            <li>Création outil prévision stocks basé ML réduisant ruptures de 8%</li>
+            <li>Optimisation logistique flotte et réduction coûts de 15%</li>
+            <li>Propositions commerciales acheteurs nationaux (75% taux succès)</li>
+            <li>Gestion comptes fournisseurs clés dans 8 pays</li>
+            <li>Construction tableaux bord CRM avec Power BI pour suivi ventes temps réel</li>
+            <li>Conception rebranding complet avec système commande B2B direct</li>
+          </ul>
         </div>
-        
-        <!-- E-Commerce Pivot -->
-        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
-          <div class="h-48 bg-gradient-to-r from-yellow-500/30 to-red-500/30 flex items-center justify-center">
-            <svg viewBox="0 0 24 24" class="w-24 h-24 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-          </div>
-          <div class="p-4">
-            <h3 class="text-xl font-semibold mb-2">B2C E-Commerce Transformation</h3>
-            <p class="text-gray-600 text-sm">
-              Led the rapid pivot from B2B distribution to a D2C e-commerce model during COVID-19, including implementation of Shopify, automated marketing, and personalized customer journeys.
-            </p>
-          </div>
-        </div>
+      </div>
+
+      <!-- Wine Export -->
+      <div class="mb-8 border-l-4 border-purple-500 pl-6">
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="en">Wine Export Business Developer</h3>
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="fr">Développeur Commercial Export Vin</h3>
+        <p class="text-lg text-gray-600 mb-2">Adhesion Group, Paris, France</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="en">September 2005 – September 2006</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="fr">Septembre 2005 – Septembre 2006</p>
+        <p class="text-sm font-semibold text-purple-600 mb-3" data-lang="en">€25M revenue | 60 employees</p>
+        <p class="text-sm font-semibold text-purple-600 mb-3" data-lang="fr">25M€ CA | 60 employés</p>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="en">
+          <li>Developed market access for boutique French wineries across EU, US, and Asia</li>
+          <li>Led B2B matchmaking events with international importers</li>
+          <li>Conducted wine category market research for export strategy</li>
+          <li>Oversaw cross-border logistics and compliance</li>
+        </ul>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="fr">
+          <li>Développement accès marché vignobles français boutique UE, US et Asie</li>
+          <li>Direction événements matchmaking B2B avec importateurs internationaux</li>
+          <li>Recherche marché catégorie vins pour stratégie export</li>
+          <li>Supervision logistique transfrontalière et conformité</li>
+        </ul>
+      </div>
+      
+      <!-- Kronenbourg -->
+      <div class="mb-8 border-l-4 border-red-500 pl-6">
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="en">Trade Marketing Manager</h3>
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="fr">Responsable Trade Marketing</h3>
+        <p class="text-lg text-gray-600 mb-2">Brasseries Kronenbourg (Carlsberg Group), Paris, France</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="en">August 2001 – March 2004</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="fr">Août 2001 – Mars 2004</p>
+        <p class="text-sm font-semibold text-red-600 mb-3" data-lang="en">€2.2B revenue | 1,500 employees</p>
+        <p class="text-sm font-semibold text-red-600 mb-3" data-lang="fr">2,2Md€ CA | 1 500 employés</p>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="en">
+          <li>Drove 50% increase in on-trade visibility through event marketing and POS</li>
+          <li>Managed forecast models and budgets for regional campaigns</li>
+          <li>Worked cross-functionally with national logistics and sales teams</li>
+          <li>Spearheaded national rollout of Foster's and Carlsberg across 1,000+ outlets</li>
+        </ul>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="fr">
+          <li>Augmentation 50% visibilité CHR via marketing événementiel et PLV</li>
+          <li>Gestion modèles prévision et budgets campagnes régionales</li>
+          <li>Travail transversal équipes logistique et ventes nationales</li>
+          <li>Direction déploiement national Foster's et Carlsberg 1 000+ points de vente</li>
+        </ul>
+      </div>
+
+      <!-- PwC -->
+      <div class="mb-8 border-l-4 border-indigo-500 pl-6">
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="en">Import-Export Consultant</h3>
+        <h3 class="text-2xl font-semibold text-gray-800" data-lang="fr">Consultant Import-Export</h3>
+        <p class="text-lg text-gray-600 mb-2">PwC (PricewaterhouseCoopers), Dublin, Ireland</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="en">April 1995 – September 1996</p>
+        <p class="text-sm text-gray-500 mb-4" data-lang="fr">Avril 1995 – Septembre 1996</p>
+        <p class="text-sm font-semibold text-indigo-600 mb-3" data-lang="en">€300M revenue (division) | 300 employees</p>
+        <p class="text-sm font-semibold text-indigo-600 mb-3" data-lang="fr">300M€ CA (division) | 300 employés</p>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="en">
+          <li>Consulted on customs classification for tech hardware under EU codes</li>
+          <li>Delivered regulatory import/export guidance</li>
+          <li>Built foundational expertise in international trade operations</li>
+          <li>Specialized in computer components and EU classification systems</li>
+        </ul>
+        <ul class="list-disc pl-5 mt-4 space-y-2 text-gray-700" data-lang="fr">
+          <li>Conseil classification douanière matériel tech sous codes UE</li>
+          <li>Fourniture guidance réglementaire import/export</li>
+          <li>Construction expertise fondamentale opérations commerce international</li>
+          <li>Spécialisation composants informatiques et systèmes classification UE</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Personal Interests -->
+    <section id="interests" class="mb-16 bg-white shadow-lg rounded-lg p-8">
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="en">Personal Interests & Hobbies</h2>
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="fr">Intérêts Personnels & Loisirs</h2>
+      <div class="flex flex-wrap gap-4 mb-6">
+        <span class="skill-tag">Rugby</span>
+        <span class="skill-tag">Soccer</span>
+        <span class="skill-tag" data-lang="en">Gaelic Football</span>
+        <span class="skill-tag" data-lang="fr">Football Gaélique</span>
+        <span class="skill-tag">Golf</span>
+        <span class="skill-tag" data-lang="en">Swimming</span>
+        <span class="skill-tag" data-lang="fr">Natation</span>
+        <span class="skill-tag" data-lang="en">Boxing Training</span>
+        <span class="skill-tag" data-lang="fr">Entraînement Boxe</span>
+        <span class="skill-tag" data-lang="en">Hiking</span>
+        <span class="skill-tag" data-lang="fr">Randonnée</span>
+        <span class="skill-tag" data-lang="en">Biking</span>
+        <span class="skill-tag" data-lang="fr">Vélo</span>
+        <span class="skill-tag" data-lang="en">AI Innovation</span>
+        <span class="skill-tag" data-lang="fr">Innovation IA</span>
+        <span class="skill-tag" data-lang="en">Reading</span>
+        <span class="skill-tag" data-lang="fr">Lecture</span>
+        <span class="skill-tag" data-lang="en">Global Geopolitics</span>
+        <span class="skill-tag" data-lang="fr">Géopolitique Mondiale</span>
+        <span class="skill-tag" data-lang="en">Technology</span>
+        <span class="skill-tag" data-lang="fr">Technologie</span>
+      </div>
+      <div class="bg-gray-50 p-4 rounded-lg">
+        <p class="text-gray-700 mb-2" data-lang="en">
+          <strong>Sports:</strong> Lifelong rugby, soccer, and Gaelic football fan and former amateur player. Golf enthusiast who enjoys walks in the countryside.
+        </p>
+        <p class="text-gray-700 mb-2" data-lang="fr">
+          <strong>Sports:</strong> Passionné de rugby, football et football gaélique, ancien joueur amateur. Enthousiaste golf qui apprécie les promenades à la campagne.
+        </p>
+        <p class="text-gray-700" data-lang="en">
+          <strong>Interests:</strong> Keen interest in technology, AI innovation, reading, and global geopolitics. Active lifestyle with regular hiking, swimming, biking, and boxing training.
+        </p>
+        <p class="text-gray-700" data-lang="fr">
+          <strong>Intérêts:</strong> Vif intérêt pour technologie, innovation IA, lecture et géopolitique mondiale. Style de vie actif avec randonnée, natation, vélo et entraînement boxe réguliers.
+        </p>
       </div>
     </section>
     
     <!-- Contact Me -->
     <section id="contact" class="mb-16 bg-white shadow-lg rounded-lg p-8">
-      <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Me</h2>
-      <p>Want to get in touch? Email me directly at <a href="mailto:conorc33@gmail.com" class="text-blue-500 hover:underline">conorc33@gmail.com</a></p>
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="en">Let's Connect</h2>
+      <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="fr">Restons en Contact</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold mb-4" data-lang="en">Get in Touch</h3>
+          <h3 class="text-xl font-semibold mb-4" data-lang="fr">Contactez-moi</h3>
+          <p class="text-gray-600 mb-6" data-lang="en">
+            Ready to discuss AI strategy, sales transformation, or your next big project? 
+            I'd love to hear from you.
+          </p>
+          <p class="text-gray-600 mb-6" data-lang="fr">
+            Prêt à discuter stratégie IA, transformation commerciale, ou votre prochain grand projet ? 
+            J'aimerais avoir de vos nouvelles.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+              </svg>
+              <span>conorc33@gmail.com</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+              </svg>
+              <span>+33 6 62 04 85 09</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Paris, France</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <form action="https://formspree.io/f/your-form-id" method="POST" class="space-y-4">
+            <!-- Honeypot field -->
+            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+            
+            <!-- Hidden fields for Formspree -->
+            <input type="hidden" name="_subject" value="New message from conorcorcoran.dev">
+            <input type="hidden" name="_redirect" value="https://conorcorcoran.dev/thanks.html">
+            
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Your Name" 
+              data-lang="en"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              required 
+              aria-label="Your Name"
+            />
+            <input 
+              type="text" 
+              name="name" 
+              placeholder="Votre Nom" 
+              data-lang="fr"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              required 
+              aria-label="Votre Nom"
+            />
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Your Email" 
+              data-lang="en"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              required 
+              aria-label="Your Email"
+            />
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="Votre Email" 
+              data-lang="fr"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              required 
+              aria-label="Votre Email"
+            />
+            <input 
+              type="text" 
+              name="subject" 
+              placeholder="Subject" 
+              data-lang="en"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              aria-label="Subject"
+            />
+            <input 
+              type="text" 
+              name="subject" 
+              placeholder="Sujet" 
+              data-lang="fr"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              aria-label="Sujet"
+            />
+            <textarea 
+              name="message" 
+              placeholder="Your Message" 
+              data-lang="en"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              rows="5" 
+              required
+              aria-label="Your Message"
+            ></textarea>
+            <textarea 
+              name="message" 
+              placeholder="Votre Message" 
+              data-lang="fr"
+              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+              rows="5" 
+              required
+              aria-label="Votre Message"
+            ></textarea>
+            <button type="submit" class="btn-primary w-full" data-lang="en">
+              Send Message
+            </button>
+            <button type="submit" class="btn-primary w-full" data-lang="fr">
+              Envoyer Message
+            </button>
+          </form>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="text-center py-8 border-t">
       <div class="flex justify-center space-x-4 mb-4">
-        <a href="https://linkedin.com/in/your-profile" target="_blank" class="text-blue-600 hover:underline flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <a href="https://linkedin.com/in/your-profile" target="_blank" rel="noopener" class="text-blue-600 hover:underline flex items-center gap-2" aria-label="Connect with Conor on LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.378-.028-3.152-1.922-3.152-1.922 0-2.218 1.502-2.218 3.052v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.379-1.559 2.841-1.559 3.037 0 3.6 2.001 3.6 4.601v5.591z"/>
           </svg>
           LinkedIn
         </a>
-        <a href="https://github.com/your-profile" target="_blank" class="text-gray-800 hover:underline flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+        <a href="https://github.com/your-profile" target="_blank" rel="noopener" class="text-gray-800 hover:underline flex items-center gap-2" aria-label="View Conor's code on GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.757-1.333-1.757-1.089-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.775.418-1.305.762-1.605-2.665-.305-5.466-1.335-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.305-.54-1.527.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.649.24 2.871.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 1.102.81 2.22v3.293c0 .315.21.69.825.573 4.765-1.587 8.205-6.084 8.205-11.387 0-6.627-5.373-12-12-12z"/>
           </svg>
           GitHub
         </a>
       </div>
-      <a href="#top" class="text-blue-500 hover:underline">Back to Top</a>
-      <p class="text-gray-600">© 2025 Conor Corcoran. All rights reserved.</p>
+      <a href="#top" class="text-blue-500 hover:underline" data-lang="en">Back to Top</a>
+      <a href="#top" class="text-blue-500 hover:underline" data-lang="fr">Retour en Haut</a>
+      <p class="text-gray-600" data-lang="en">&copy; 2025 Conor Corcoran. All rights reserved.</p>
+      <p class="text-gray-600" data-lang="fr">&copy; 2025 Conor Corcoran. Tous droits réservés.</p>
     </footer>
   </div>
-
-  <!-- Sympatico AI Chat Assistant -->
-  <script src="assets/js/sympatico.js"></script>
+  
+  <!-- Enhanced JavaScript -->
+  <script src="assets/js/main.js" defer></script>
+  
+  <!-- Sympatico AI Assistant -->
   <script>
-    // Initialize Sympatico Chat Widget when page loads
+    // Configure Sympatico API endpoint
+    window.SYMPATICO_API = 'http://localhost:8000'; // Change this to your deployed API URL
+  </script>
+  <script src="assets/js/sympatico.js"></script>
+  
+  <script>
+    // Mobile menu functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const sympatico = new SympaticoChatWidget({
-        apiUrl: 'http://localhost:8000',
-        title: 'Sympatico AI Assistant',
-        placeholder: 'Ask me about Conor\'s experience, skills, or projects...'
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      
+      if (btn && menu) {
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+          btn.setAttribute('aria-expanded', menu.classList.contains('hidden') ? 'false' : 'true');
+        });
+        btn.setAttribute('aria-controls', 'mobile-menu');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      
+      // Simple typewriter effect
+      const typewriterElements = document.querySelectorAll('.typewriter');
+      typewriterElements.forEach(el => {
+        const words = ["AI Strategy", "Operations", "Growth"];
+        let i = 0;
+        function tick() {
+          if (el) {
+            el.textContent = words[i];
+            i = (i + 1) % words.length;
+          }
+        }
+        tick();
+        setInterval(tick, 1800);
       });
     });
   </script>
