@@ -282,6 +282,7 @@
             <h3 class="font-semibold mb-2">Languages & Frameworks</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag">Python</span>
+              <span class="skill-tag">FastAPI</span>
               <span class="skill-tag">JavaScript</span>
               <span class="skill-tag">TypeScript</span>
               <span class="skill-tag">HTML/CSS</span>
@@ -291,6 +292,8 @@
             <h3 class="font-semibold mb-2">AI & Tools</h3>
             <div class="flex flex-wrap gap-2">
               <span class="skill-tag">OpenAI</span>
+              <span class="skill-tag">RAG Systems</span>
+              <span class="skill-tag">FAISS Vector Store</span>
               <span class="skill-tag">IBM Watson</span>
               <span class="skill-tag">CRM Systems</span>
               <span class="skill-tag">Mailchimp</span>
@@ -378,6 +381,19 @@
     <section id="portfolio" class="mb-16 bg-white shadow-lg rounded-lg p-8">
       <h2 class="text-3xl font-bold mb-6 gradient-text">Notable Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Sympatico AI Chat Assistant -->
+        <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
+          <div class="h-48 bg-gradient-to-r from-green-500/30 to-blue-500/30 flex items-center justify-center">
+            <img src="assets/images/sympatico-ai-chat-logo.svg" alt="Sympatico AI" class="w-24 h-24" />
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold mb-2">Sympatico AI Chat Assistant</h3>
+            <p class="text-gray-600 text-sm">
+              Interactive AI assistant powered by RAG technology that can answer questions about my experience and qualifications. Try the chat widget in the bottom-right corner!
+            </p>
+          </div>
+        </div>
+        
         <!-- AI CV Agent -->
         <div class="bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition">
           <div class="h-48 bg-gradient-to-r from-green-500/30 to-blue-500/30 flex items-center justify-center">
@@ -456,5 +472,18 @@
       <p class="text-gray-600">© 2025 Conor Corcoran. All rights reserved.</p>
     </footer>
   </div>
+
+  <!-- Sympatico AI Chat Assistant -->
+  <script src="assets/js/sympatico.js"></script>
+  <script>
+    // Initialize Sympatico Chat Widget when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      const sympatico = new SympaticoChatWidget({
+        apiUrl: 'http://localhost:8000',
+        title: 'Sympatico AI Assistant',
+        placeholder: 'Ask me about Conor\'s experience, skills, or projects...'
+      });
+    });
+  </script>
 </body>
 </html>
