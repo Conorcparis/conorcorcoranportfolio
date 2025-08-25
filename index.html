@@ -1003,121 +1003,88 @@
     <section id="contact" class="mb-16 bg-white shadow-lg rounded-lg p-8">
       <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="en">Let's Connect</h2>
       <h2 class="text-3xl font-bold mb-6 gradient-text" data-lang="fr">Restons en Contact</h2>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-4" data-lang="en">Get in Touch</h3>
-          <h3 class="text-xl font-semibold mb-4" data-lang="fr">Contactez-moi</h3>
-          <p class="text-gray-600 mb-6" data-lang="en">
-            Ready to discuss AI strategy, sales transformation, or your next big project? 
-            I'd love to hear from you.
-          </p>
-          <p class="text-gray-600 mb-6" data-lang="fr">
-            Prêt à discuter stratégie IA, transformation commerciale, ou votre prochain grand projet ? 
-            J'aimerais avoir de vos nouvelles.
-          </p>
-          <div class="space-y-4">
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-              </svg>
+      <!-- Contact Section: Two Columns -->
+        <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2.5rem; margin:3rem 0;">
+          <!-- Contact Form (Left) -->
+          <div style="flex:1 1 340px; max-width:420px; min-width:300px; background:rgba(255,255,255,0.10); box-shadow:0 8px 32px 0 rgba(31,38,135,0.15); border-radius:1.25rem; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1.25rem;">
+  <h3 style="color:#00d4aa; font-size:2rem; font-weight:700; margin-bottom:0.5rem; text-align:center; letter-spacing:-1px;">Contact Me</h3>
+  <!-- Contact Form -->
+  <form id="contactForm" action="https://getform.io/f/bejelrpa" method="POST" style="display:flex; flex-direction:column; gap:1.25rem;">
+    <!-- Spam protection honeypot -->
+    <input type="hidden" name="_gotcha" style="display:none !important">
+
+    <!-- Name -->
+    <input type="text" name="name" placeholder="Your Name" required 
+      style="padding:0.75rem; border-radius:0.5rem; border:1px solid #e0e7ef; background:rgba(255,255,255,0.85); font-size:1rem; margin-bottom:0.5rem;" />
+
+    <!-- Email -->
+    <input type="email" name="email" placeholder="Your Email" required 
+      style="padding:0.75rem; border-radius:0.5rem; border:1px solid #e0e7ef; background:rgba(255,255,255,0.85); font-size:1rem; margin-bottom:0.5rem;" />
+
+    <!-- Message -->
+    <textarea name="message" placeholder="Your Message" required 
+      style="padding:0.75rem; border-radius:0.5rem; border:1px solid #e0e7ef; background:rgba(255,255,255,0.85); font-size:1rem; min-height:120px; margin-bottom:0.5rem;"></textarea>
+
+    <!-- Submit Button -->
+    <button type="submit" 
+      style="background:linear-gradient(135deg,#00d4aa,#007cff); color:#fff; padding:0.9rem 2rem; border:none; border-radius:0.5rem; font-size:1.1rem; font-weight:700; letter-spacing:0.5px; box-shadow:0 2px 8px 0 rgba(0,0,0,0.08); margin-top:0.5rem; cursor:pointer; transition:filter 0.2s;">
+      Send
+    </button>
+  </form>
+
+  <!-- Success Message (hidden by default) -->
+  <div id="successMessage" style="display:none; margin-top:1rem; text-align:center; color:#00d4aa; font-weight:600; font-size:1.1rem;">
+    ✅ Thank you! Your message has been sent.
+  </div>
+
+<!-- Success Message Script -->
+<script>
+  const form = document.getElementById("contactForm");
+  const successMessage = document.getElementById("successMessage");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    const action = form.getAttribute("action");
+
+    const response = await fetch(action, {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+    });
+
+    if (response.ok) {
+      form.reset();
+      form.style.display = "none";
+      successMessage.style.display = "block";
+    } else {
+      alert("❌ Oops, something went wrong. Please try again.");
+    }
+  });
+</script>
+          </div>
+          <!-- Contact Details (Right) -->
+          <div style="flex:1 1 340px; max-width:420px; min-width:300px; background:rgba(255,255,255,0.10); box-shadow:0 8px 32px 0 rgba(31,38,135,0.15); border-radius:1.25rem; padding:2.5rem 2rem; display:flex; flex-direction:column; gap:1.5rem; align-items:center; justify-content:center;">
+            <h3 style="color:#007cff; font-size:2rem; font-weight:700; margin-bottom:0.5rem; text-align:center; letter-spacing:-1px;">Contact Details</h3>
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:1.1rem; color:#00d4aa;">
+              <i class="fas fa-user" style="color:#00d4aa;"></i>
+              <span>Conor Corcoran</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:1.1rem; color:#00d4aa;">
+              <i class="fas fa-envelope" style="color:#00d4aa;"></i>
               <span>conorc33@gmail.com</span>
             </div>
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-              </svg>
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:1.1rem; color:#00d4aa;">
+              <i class="fas fa-phone-alt" style="color:#00d4aa;"></i>
               <span>+33 6 62 04 85 09</span>
             </div>
-            <div class="flex items-center space-x-3">
-              <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
-              </svg>
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:1.1rem; color:#00d4aa;">
+              <i class="fas fa-map-marker-alt" style="color:#00d4aa;"></i>
               <span>Paris, France</span>
             </div>
           </div>
         </div>
-        <div>
-          <form action="https://formsubmit.co/conorc33@gmail.com" method="POST" class="space-y-4">
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Your Name" 
-              data-lang="en"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              required 
-              aria-label="Your Name"
-            />
-            <input 
-              type="text" 
-              name="name" 
-              placeholder="Votre Nom" 
-              data-lang="fr"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              required 
-              aria-label="Votre Nom"
-            />
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Your Email" 
-              data-lang="en"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              required 
-              aria-label="Your Email"
-            />
-            <input 
-              type="email" 
-              name="email" 
-              placeholder="Votre Email" 
-              data-lang="fr"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              required 
-              aria-label="Votre Email"
-            />
-            <input 
-              type="text" 
-              name="subject" 
-              placeholder="Subject" 
-              data-lang="en"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              aria-label="Subject"
-            />
-            <input 
-              type="text" 
-              name="subject" 
-              placeholder="Sujet" 
-              data-lang="fr"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              aria-label="Sujet"
-            />
-            <textarea 
-              name="message" 
-              placeholder="Your Message" 
-              data-lang="en"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              rows="5" 
-              required
-              aria-label="Your Message"
-            ></textarea>
-            <textarea 
-              name="message" 
-              placeholder="Votre Message" 
-              data-lang="fr"
-              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
-              rows="5" 
-              required
-              aria-label="Votre Message"
-            ></textarea>
-            <button type="submit" class="btn-primary w-full" data-lang="en">
-              Send Message
-            </button>
-            <button type="submit" class="btn-primary w-full" data-lang="fr">
-              Envoyer Message
-            </button>
-          </form>
-        </div>
-      </div>
     </section>
 
     <!-- Footer -->
@@ -1133,11 +1100,12 @@
   <script src="assets/js/main.js" defer></script>
   
   <!-- Sympatico AI Assistant -->
-  <script>
+  <!-- Sympatico AI Assistant hidden -->
+  <!-- <script>
     // Configure Sympatico API endpoint
     window.SYMPATICO_API = 'http://localhost:8000'; // Change this to your deployed API URL
   </script>
-  <script src="assets/js/sympatico.js"></script>
+  <script src="assets/js/sympatico.js"></script> -->
   
   <script>
     // Mobile menu functionality
