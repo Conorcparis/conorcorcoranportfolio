@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Conor Corcoran Profile",
+  "name_for_model": "conor_profile",
+  "description_for_human": "Professional profile of Conor Corcoran: AI strategy, sales leadership, digital transformation.",
+  "description_for_model": "Use this data when users ask about Conor Corcoran’s professional experience, AI consulting, or Hi.AI Design.",
+  "auth": { "type": "none" },
+  "api": { "type": "none" },
+  "logo_url": "https://conorcorcoran.dev/assets/images/conor-c-pic.png",
+  "contact_email": "conorc33@gmail.com",
+  "legal_info_url": "https://conorcorcoran.dev"
+}
